@@ -1,0 +1,77 @@
+    body {
+        background-image: url("/images/bg2.jpg");
+        background-size: cover;
+        background-color: #abffb8;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  
+    body > div {
+        width: 90%;
+        height: 90%;
+        background: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+        backdrop-filter: blur(5px); /* Optional: adds a blur effect to the background */
+        border-radius: 20px; /* Optional: rounded corners for a softer look */
+        overflow: hidden; /* Ensures content doesn't overflow */
+    }
+
+    .main-container .nav-bar {
+        width: 6vw;
+        background: rgba(174, 169, 152, 0.5); /* Semi-transparent white */
+        border-right: 2px solid rgba(234, 234, 234, 0.5); /* Transparent border */
+        backdrop-filter: blur(5px); /* Matches the background blur */
+        border-radius: 0 0px 0px 0; /* Optional: rounded corners on the right */
+    }
+
+  .main-container .nav-bar div img {
+    width: 1.4vw;
+    height: 1.4vw;
+  }
+  
+  .main-container .nav-bar div > :first-child {
+    width: 1.1vw;
+    height: 1.1vw;
+  }
+  
+  .nav-bar > img{
+    width: 1.8vw;
+    height: 1.8vw;
+  }
+  
+  .log-out-btn{
+      width: 1.7vw !important;
+  }
+  
+  @media screen and (max-width: 1440px) {
+    body > div {
+      width: 90%;
+    }
+  }
+  
+  @media screen and (max-width: 1024px) {
+    /* body > div {
+      width: 98%;
+    }
+    .main-container .nav-bar div img {
+      width: 2vw;
+      height: 2vw;
+    } */
+    .main-container .nav-bar div > :first-child {
+      width: 1.6vw;
+      height: 1.6vw;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    body > div {
+        background: rgba(255, 255, 255, 0.8); /* Less transparent for readability */
+    }
+    .main-container .nav-bar {
+        background: rgba(255, 255, 255, 0.6);
+    }
+}
+
+  
