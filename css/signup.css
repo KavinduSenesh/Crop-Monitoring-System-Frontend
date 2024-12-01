@@ -1,296 +1,256 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;    
-}
+body {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full height of the viewport */
+    margin: 0; /* Remove default margin */
+    background-color: #3cb06329; /* Background color for the page */
+  }
 
-body{
+  .form-1 {
+    display: grid;
+    grid-template-columns: 400px 400px;
+    width: 800px;
+    height: 500px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 20px; /* Adjust this as needed */
+    overflow: hidden; /* Ensure child elements respect the radius */
+  }
+  
+
+  .form-1 img {
+    width: 400px; /* Ensure the image fits the column */
+    height: 500px;
+    object-fit: cover; /* Maintain aspect ratio and cover the area */
+    }
+
+  .form-1 h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: url(/images/bg1.jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-.wrapper{
-    width: 420px;
-    background: transparent linear-gradient(180deg) 0% 0% no-repeat padding-box;
-    border: 2px solid rgba(255, 255, 255, .2);
-    backdrop-filter: blur(15px);
-    color: #fff;
-    border-radius: 12px;
-    padding: 30px 40px;
-}
-
-.wrapper h1{
-    font-size: 40px;
     text-align: center;
-    color: #000407;
-    
-}
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+  }
 
-.wrapper h2{
-    font-size: 20px;
+  .signup-card {
     text-align: center;
-    color: #000407;
-}
-
-.input-box input:hover {
-  border-color: #dcdee7;
-  background-color: rgba(227, 231, 248, 0.1);
-}
-
-.wrapper .input-box{
-    position: relative;
     width: 100%;
-    height:  50px;
-    margin: 30px 0;
-}
-
-.input-box input{
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    border: 2px solid rgba(10, 9, 9, 0.2);
-    border-radius: 40px;
-    font-size: 16px;
-    color: #191f23;
-    padding: 20px 45px 20px 20px;
-}
-
-.input-box input::placeholder{
-    color: #000407;
-} */
-
-.input-box i{
-    position: absolute;
-    right: 20px;
-    top: 30%;
-    transform: translate(-50%);
-    font-size: 15px;
-}
-
-.fa-user, .fa-lock{ /* Update based on your icon classes */
-    color: #0a0a0a;
-    font-size: 0px;
-}
-
-/*drop down CSS*/
-.form-container h3{
-    font-size: var(--font-32px);
-    letter-spacing: 0.64px;
-    font-weight: 500;
-    color: var(--font-color);
-}
-
-.form-container h4{
-    font-size: var(--font-18px);
-    font-weight: 500;
-    color: var(--sub-font-color);
-    letter-spacing: 0.18px;
-}
-
-.form-container .form-floating{
-    width: 100%;
-    box-shadow: 0 0 23px -6px rgba(0, 0, 0, 0.10);
-}
-
-.form-container .form-floating input{
-    color: var(--filed-color);
-    font-size: var(--font-16px);
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    border: none;
-}
-
-.form-container .form-floating label{
-    padding-left: 20px;
-    font-size: var(--font-13px);
-    font-weight: 500;
-}
-
-.form-container .form-floating input:focus{
-    outline: none;
-}
-
-/*drop down CSS*/
-/*drop down CSS*/
-
-/*checkbox CSS*/
-.checkbox-wrapper-46{
-    /* display: flex; */
-    /* align-items: center; */
-    justify-content: space-between;
-    margin: 0px 0 20px 0px;
-    font-size: small;
-    padding: auto;
-    font-weight: bold;
-}
-
-.checkbox-wrapper-46 input[type="checkbox"] {
-    display: none;
-    visibility: hidden;
-    margin: 10px 0; /* Adds vertical spacing */
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px; /* Add rounded corners here */
+    overflow: hidden; /* Ensures content respects the border-radius */
   }
   
-  .checkbox-wrapper-46 .cbx {
-    margin: auto;
-    -webkit-user-select: none;
-    user-select: none;
-    cursor: pointer;
-  }
-  .checkbox-wrapper-46 .cbx span {
-    display: inline-block;
-    vertical-align: middle;
-    transform: translate3d(0, 0, 0);
-  }
-  .checkbox-wrapper-46 .cbx span:first-child {
-    position: relative;
-    width: 18px;
-    height: 18px;
-    border-radius: 3px;
-    transform: scale(1);
-    vertical-align: middle;
-    border: 1px solid #1b1919;
-    transition: all 0.2s ease;
-  }
-  .checkbox-wrapper-46 .cbx span:first-child svg {
-    position: absolute;
-    top: 3px;
-    left: 2px;
-    fill: none;
-    stroke: #070707;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-dasharray: 16px;
-    stroke-dashoffset: 16px;
-    transition: all 0.3s ease;
-    transition-delay: 0.1s;
-    transform: translate3d(0, 0, 0);
-  }
-  .checkbox-wrapper-46 .cbx span:first-child:before {
-    content: "";
+
+  .signup-card .btn {
     width: 100%;
-    height: 100%;
-    background: #0e0e0e;
-    display: block;
-    transform: scale(0);
-    opacity: 1;
-    border-radius: 50%;
-  }
-  .checkbox-wrapper-46 .cbx span:last-child {
-    padding-left: 8px;
-  }
-  .checkbox-wrapper-46 .cbx:hover span:first-child {
-    border-color: #506eec;
-  }
-  
-  .checkbox-wrapper-46 .inp-cbx:checked + .cbx span:first-child {
-    background: #e8e8ef;
-    border-color: #dbdde6;
-    animation: wave-46 0.4s ease;
-  }
-  .checkbox-wrapper-46 .inp-cbx:checked + .cbx span:first-child svg {
-    stroke-dashoffset: 0;
-  }
-  .checkbox-wrapper-46 .inp-cbx:checked + .cbx span:first-child:before {
-    transform: scale(3.5);
-    opacity: 0;
-    transition: all 0.6s ease;
-  }
-  
-  #span{
-    color: #000407;
-    font-weight: 1500000;
+    background-color: #1a7036;
+    margin-top: 2000000px;
   }
 
-  @keyframes wave-46 {
-    50% {
-      transform: scale(0.9);
-    }
+  .signup-card .btn:hover{
+    background-color: #a9dc4e;
+    color: black;
+    border-color: #ffffff;
   }
-  /*checkbox CSS*/
 
-/*button CSS*/
-.button {
-    width: 100%;
-    --color: #0d0c0a;
-    padding: 0.8em 1.7em;
-    background-color: transparent;
-    border-radius: .3em;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    transition: .5s;
-    font-weight: 400;
-    font-size: 17px;
-    border: 1px solid;
-    font-family: inherit;
-    color: #0b0a0a;
-    /* color: var(--color); */
-    z-index: 1;
-   }
-   
-   .button::before, .button::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 50px;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    border-radius: 50%;
-    z-index: -1;
-    background-color: var(--color);
-    transition: 1s ease;
-   }
-   
-   .button::before {
-    top: -1em;
-    left: -1em;
-   }
-   
-   .button::after {
-    left: calc(100% + 1em);
-    top: calc(100% + 1em);
-   }
-   
-   .button:hover::before, .button:hover::after {
-    height: 410px;
-    width: 410px;
-   }
-   
-   .button:hover {
-    color: rgb(223, 232, 235);
-   }
-   
-   .button:active {
-    filter: brightness(.8);
-   } 
-/*button CSS*/
-
-
-.wrapper .register-link{
-    font-size: 14.5px;
+  .signup-card .links {
+    margin-top: 15px;
     text-align: center;
-    margin: 20px 0 15px;
-    color: #000407;
-}
+  }
 
-.register-link p a{
-    color: #151212;
+  .signup-card .links a {
+    margin: 0 10px;
     text-decoration: none;
-    font-weight: 600;
-}
+    color: black;
+  }
 
-.register-link p a:hover{
+  .signup-card .links a:hover {
     text-decoration: underline;
+    color: #1a7036;
+  }
+
+/*drop down menu*/
+/* Dropdown Container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%; /* Makes the dropdown stretch to full width */
+  margin-top: 1rem;
+  margin-bottom: auto;
 }
 
+/* Dropdown Button */
+.dropdown-btn {
+  width: 100%; /* Full width button */
+  padding: 10px 15px;
+  font-size: 1rem;
+  text-align: left;
+  background-color: #e3eee8ad;
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between; /* Align text and arrow */
+  align-items: center;
+}
+
+.dropdown-btn:hover {
+  background-color: #a8dc4e74;
+  color: black;
+}
+ 
+/* Dropdown Content */
+.dropdown-content {
+  display: none; /* Hidden by default */
+  position: absolute;
+  background-color: #fff;
+  min-width: 100%; /* Match button width */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+/* Dropdown Links */
+.dropdown-content li {
+  list-style: none;
+}
+
+.dropdown-content li a {
+  color: #1a7036;
+  text-decoration: none;
+  display: block;
+  padding: 10px 15px;
+  font-size: 0.9rem;
+}
+
+.dropdown-content li a:hover {
+  background-color: #f5f5f5;
+  color: #1a7036;
+}
+
+/* Show Dropdown on Click */
+.dropdown.open .dropdown-content {
+  display: block;
+}
+
+/* Arrow Icon */
+.dropdown-btn .arrow {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #fff;
+  transition: transform 0.3s ease;
+}
+
+.dropdown.open .dropdown-btn .arrow {
+  transform: rotate(180deg);
+}
+
+/*drop down menu*/
+
+/* signup btn */
+button {
+position: relative;
+display: inline-block;
+cursor: pointer;
+outline: none;
+border: 0;
+vertical-align: middle;
+text-decoration: none;
+background: transparent;
+padding: 0px;
+font-size: inherit;
+font-family: inherit;
+}
+
+button.learn-more {
+width: 12rem;
+height: auto;
+}
+
+button.learn-more .circle {
+transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+position: relative;
+display: block;
+margin: 0;
+width: 3rem;
+height: 3rem;
+background: #282936;
+border-radius: 1.625rem;
+}
+
+button.learn-more .circle .icon {
+transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+position: absolute;
+top: 0;
+bottom: 0;
+margin: auto;
+background: #fff;
+}
+
+button.learn-more .circle .icon.arrow {
+transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+left: 0.625rem;
+width: 1.125rem;
+height: 0.125rem;
+background: none;
+}
+
+button.learn-more .circle .icon.arrow::before {
+position: absolute;
+content: "";
+top: -0.29rem;
+right: 0.0625rem;
+width: 0.625rem;
+height: 0.625rem;
+border-top: 0.125rem solid #fff;
+border-right: 0.125rem solid #fff;
+transform: rotate(45deg);
+}
+
+button.learn-more .button-text {
+transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+padding: 0.75rem 0;
+margin: 0 0 0 1.85rem;
+color: #282936;
+font-weight: 700;
+line-height: 1.6;
+text-align: center;
+text-transform: uppercase;
+}
+
+button:hover .circle {
+width: 100%;
+}
+
+button:hover .circle .icon.arrow {
+background: #fff;
+transform: translate(1rem, 0);
+}
+
+button:hover .button-text {
+color: #fff;
+}
+.Login-animaton{
+width: 80px;
+height: 80px;
+
+}
+form{
+text-align: left;
+place-content: center;
+
+}
+/* signup btn */

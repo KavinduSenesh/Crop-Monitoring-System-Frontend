@@ -1,57 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GreenShadow</title>
-
-    <!-- Bootstrap CSS Link -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS Link -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Boxicons CSS Link -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- Font Awesome CSS Link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
-</head>
-<body>
-    <!--Login page-->
-    <div class="wrapper">
-        <form action="">
-            <h1>SignIn</h1>
-
-            <div class="input-box">
-                <input type="text" placeholder="Username" required> 
-                <i class="fa-solid fa-user"></i>
-            </div>
-            <div class="input-box">
-                <input type="text" placeholder="Password" required> 
-                <i class='fa-solid fa-lock' ></i>
-            </div>
-
-            <div class="checkbox-wrapper-46">
-            <input type="checkbox" id="cbx-46" class="inp-cbx" />
-            <label for="cbx-46" class="cbx"
-                ><span>
-                <svg viewBox="0 0 12 10" height="10px" width="12px">
-                    <polyline points="1.5 6 4.5 9 10.5 1"></polyline></svg></span
-                ><span id="span">I agree to all Term, Privacy Policy and Fees</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/index.css" />
+  </head>
+  <body>
+    <div class="form-1">
+      <img src="/assets/farm2.png" alt="Login Image" />
+      <div class="login-card">
+        <h4 class="text-center mb-4">Green Shadow Log In</h4>
+        <!-- <video src="/Assests/face-scan_WayMM2Wa.mp4" class="Login-animaton" autoplay loop muted></video> -->
+        <br>
+        <br>
+        
+        <form>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="acceptCookies"
+            />
+            <label class="form-check-label" for="acceptCookies">
+              I agree to all Terms and conditions
             </label>
-            </div>
-
-            <button type="submit" class="button">SignUp</button>
-
-            <div class="register-link">
-                <p>Dont you have a account? <a href="pages/signup.html">Register</a></p>
-            </div>
+          </div>
+          <button type="button" class="btn btn-primary mt-3" id="signInButton">Sign In</button>
+          <div class="links" >
+            <a id="registerLink" href="">Register</a>
+          </div>
         </form>
+      </div>
     </div>
-    <!--Login page-->
-
-    <!-- jQuery and Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JavaScript Link -->
-    <script src="script.js"></script>
-</body>
+    <script>
+      // Event listener for the Sign In button
+      document.getElementById("signInButton").addEventListener("click", () => {
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+        
+          if (email && password) {
+            // Example: You can validate or process login credentials here
+            console.log(`Email: ${email}, Password: ${password}`);
+            // Redirect to the dashboard or staff management page
+            window.location.href = "http://127.0.0.1:5502/pages/management/staffManagement.html"; // Update with your actual target URL
+          } else {
+            alert("Please enter both email and password!");
+          }
+        });
+        
+        document.getElementById("registerLink").addEventListener("click", (event) => {
+          event.preventDefault();
+          window.location.href = "staffManagement.html";
+    })
+    </script>
+ </body>
 </html>
