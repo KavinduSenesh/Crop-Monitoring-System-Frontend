@@ -100,8 +100,8 @@ body {
 }
 
 .dropdown-btn:hover {
-  background-color: #a8dc4e74;
-  color: black;
+  background-color: #d2d9c774;
+  color: rgba(0, 0, 0, 0.636);
 }
  
 /* Dropdown Content */
@@ -122,7 +122,7 @@ body {
 }
 
 .dropdown-content li a {
-  color: #1a7036;
+  color: #0f1110;
   text-decoration: none;
   display: block;
   padding: 10px 15px;

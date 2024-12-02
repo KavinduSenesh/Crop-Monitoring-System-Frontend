@@ -18,7 +18,7 @@
     />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/dashboard.css">
-    <link rel="stylesheet" href="/css/VehicleManagment.css">
+    <link rel="stylesheet" href="/css/equipmentManagement.css">
     <link rel="stylesheet" href="/css/popupForms.css">
 
 </head>
@@ -69,7 +69,7 @@
     <!-- Main Content -->
     <div class="content">
         <div class="HeadingBox">
-          <h3>Vehicle Manage</h3>
+          <h3>Equipment Manage</h3>
     <div class="container1">
         <input checked="" class="checkbox" type="checkbox"> 
         <div class="mainbox">
@@ -85,12 +85,12 @@
               <thead>
                   <tr class="first-row">
                     <!-- <th>Vehicle Code</th>   -->
-                    <th>license Plate Number</th>
-                      <th>Vehicle Category</th>
+                    <th>Equipment Name</th>
+                      <th>Equipment Type</th>
                       <!-- <th>Designation</th> -->
-                      <th>Fuel Type</th>
-                      <th>Status</th>
-                      <th>Remarks</th>
+                      <th>Availability Status</th>
+                      <th>Allocated Field</th>
+                      <th>allocated Staff</th>
                       <!-- <th>Allocated staff member</th> -->
                       <!-- <th>Contact</th>
                       <th>Email</th>
@@ -124,28 +124,37 @@
       <form id="staffForm">
         <div class="inputFieldBox">
           <!-- Vehicle Code -->
-          <input type="text" class="form-control mb-3" placeholder="Vehicle Code" id="vehicle-code" required>
+          <input type="text" class="form-control mb-3" placeholder="equipment name" id="equipment-name" required>
 
           <!-- License plate number -->
-          <input type="text" class="form-control mb-3" placeholder="License plate number" id="License-plate-number" required>
+          <input type="text" class="form-control mb-3" placeholder="equipment type" id="equipment-type" required>
           
           <!-- Vehicle Category -->
-          <input type="text" class="form-control mb-3" placeholder="Vehicle Category" id="Vehicle-Category" required>
+          <!-- <input type="text" class="form-control mb-3" placeholder="availability status" id="availability-status" required> -->
           
           <!-- Fuel Type-->
-          <input type="text" class="form-control mb-3" placeholder="Fuel Type" id="Fuel-Type" required>
+          <!-- <input type="text" class="form-control mb-3" placeholder="availability status" id="availability status" required> -->
           
+            <!-- Status -->
+          <select class="form-control mb-3" id="status" required>
+            <option value="" disabled selected>Equipment Type</option>
+            <option value="Available">Electrical</option>   
+            <option value="Unavailable">Mechanical</option>
+            <!-- <option value="In Maintenance">In Maintenance</option> -->
+            <!-- <option value="Out of Service">Out of Service</option> -->
+        </select>
+
           <!-- Status -->
           <select class="form-control mb-3" id="status" required>
               <option value="" disabled selected>Status</option>
               <option value="Available">Available</option>  
-              <option value="Unavailable">Unavailable</option>
-              <option value="In Maintenance">In Maintenance</option>
-              <option value="Out of Service">Out of Service</option>
+              <option value="Unavailable">Not_Available</option>
+              <!-- <option value="In Maintenance">In Maintenance</option> -->
+              <!-- <option value="Out of Service">Out of Service</option> -->
           </select>
           
            <!-- Fuel Type-->
-           <input type="text" class="form-control mb-3" placeholder="remarks" id="Remarks" required>
+           <input type="text" class="form-control mb-3" placeholder="Allocated field" id="Allocated-field" required>
           
           <!--  Date of Birth -->
           <input type="text" class="form-control mb-3" placeholder="Allocated Staff" id="allocated-staff" required>
@@ -188,6 +197,6 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/controller/vehicleController.js" type="module"></script>
+<script src="/controller/equipmentController.js" type="module"></script>
 </body>
 </html>
