@@ -1,0 +1,205 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    display: flex;
+    background-color: #75dd8a26;
+}
+.content {
+    margin-left: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: calc(100vh - 40px);
+    margin-right: 20px;
+    padding: 20px;
+    flex-grow: 1;
+    background-color: #ffffff ; /*#f9f9f9 */
+    border-radius: 5px;
+}
+
+.table-container {
+    margin-top: 50px;
+}
+h3{
+    font-style: bold;
+    color: #014434;
+}
+
+.btn-popup {
+    margin-bottom: 15px;
+}
+
+/* searchbar */
+.container1 {
+    position: relative;
+    box-sizing: border-box;
+    width: fit-content;
+}
+
+.mainbox {
+    box-sizing: border-box;
+    position: relative;
+    width: 230px;
+    height: 40px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    border-radius: 160px;
+    background-color: #014434;
+    transition: all 0.3s ease;
+}
+
+.checkbox:focus {
+    border: none;
+    outline: none;
+}
+
+.checkbox:checked {
+    right: 10px;
+}
+
+.checkbox:checked ~ .mainbox {
+    width: 40px;
+}
+
+.checkbox:checked ~ .mainbox .search_input {
+    width: 0;
+    height: 0px;
+}
+
+.checkbox:checked ~ .mainbox .iconContainer {
+    padding-right: 8px;
+}
+
+.checkbox {
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 17px;
+    top: 10px;
+    z-index: 9;
+    cursor: pointer;
+    appearance: none;
+}
+
+.search_input {
+    box-sizing: border-box;
+    height: 100%;
+    width: 170px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding-bottom: 4px;
+    padding-left: 10px;
+    font-size: 1em;
+    color: white;
+    transition: all 0.3s ease;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.search_input::placeholder {
+    color: rgba(255, 255, 255, 0.776);
+}
+
+.iconContainer {
+    box-sizing: border-box;
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Vertically center */
+    justify-content: center; /* Horizontally center */
+    width: fit-content;
+    height: 100%; /* Match the height of the parent */
+    transition: all 0.3s ease;
+}
+
+
+.search_icon {
+    box-sizing: border-box;
+    fill: white;
+    font-size: 1.00em;
+}
+/* table */
+table {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  tr:nth-child(even) {
+    background-color: #9dfd9648; /* Light gray color for even rows */
+  }
+
+  th {
+    background-color:#014434; /* Green header */
+    color: white;
+  }
+
+/* button */
+/* From Uiverse.io by aaronross1 */ 
+.edit-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #014434;
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+    cursor: pointer;
+    transition-duration: 0.3s;
+    overflow: hidden;
+    text-decoration: none !important;
+}
+
+.edit-svgIcon {
+    width: 17px;
+    transition-duration: 0.3s;
+}
+
+.edit-svgIcon path {
+    fill: white;
+}
+
+.edit-button:hover {
+    width: 120px;
+    border-radius: 50px;
+    transition-duration: 0.3s;
+    background-color: #709364;
+    align-items: center;
+}
+
+.edit-button:hover .edit-svgIcon {
+    width: 20px;
+    transition-duration: 0.3s;
+    transform: translateY(60%);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+
+.edit-button::before {
+    display: none;
+    content: "Edit";
+    color: white;
+    transition-duration: 0.3s;
+    font-size: 2px;
+}
+
+.edit-button:hover::before {
+    display: block;
+    padding-right: 10px;
+    font-size: 13px;
+    opacity: 1;
+    transform: translateY(0px);
+    transition-duration: 0.3s;
+}

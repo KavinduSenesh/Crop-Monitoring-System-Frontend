@@ -18,7 +18,7 @@
     />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/dashboard.css">
-    <link rel="stylesheet" href="/css/ManagementForms.css">
+    <link rel="stylesheet" href="/css/VehicleManagment.css">
     <link rel="stylesheet" href="/css/popupForms.css">
 
 </head>
@@ -65,7 +65,7 @@
     <!-- Main Content -->
     <div class="content">
         <div class="HeadingBox">
-          <h3>Staff Manage</h3>
+          <h3>Vehicle Manage</h3>
     <div class="container1">
         <input checked="" class="checkbox" type="checkbox"> 
         <div class="mainbox">
@@ -80,16 +80,17 @@
           <table id="staff-table" class="mt-3">
               <thead>
                   <tr class="first-row">
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Designation</th>
-                      <th>Gender</th>
-                      <th>Joined Date</th>
-                      <th>DOB</th>
-                      <!-- <th>Address</th> -->
-                      <th>Contact</th>
+                    <th>Vehicle Code</th>  
+                    <th>license Plate Number</th>
+                      <th>Vehicle Category</th>
+                      <!-- <th>Designation</th> -->
+                      <th>Fuel Type</th>
+                      <th>Status</th>
+                      <th>Remarks</th>
+                      <th>Allocated staff member</th>
+                      <!-- <th>Contact</th>
                       <th>Email</th>
-                      <th>Role</th>
+                      <th>Role</th> -->
                   </tr>
               </thead>
               <tbody id="staff-table-body">
@@ -115,55 +116,62 @@
 <div class="popup" id="popup">
   <div class="popup-content">
       <span class="close" id="closePopup">&times;</span>
-      <h2>Manage Staff Details</h2>
+      <h2>Manage Vehicle Details</h2>
       <form id="staffForm">
         <div class="inputFieldBox">
-          <!-- Staff ID -->
+          <!-- Vehicle Code -->
+          <input type="text" class="form-control mb-3" placeholder="Vehicle Code" id="vehicle-code" required>
+
+          <!-- License plate number -->
+          <input type="text" class="form-control mb-3" placeholder="License plate number" id="License-plate-number" required>
           
-          <!-- First Name -->
-          <input type="text" class="form-control mb-3" placeholder="First Name" id="firstName" required>
+          <!-- Vehicle Category -->
+          <input type="text" class="form-control mb-3" placeholder="Vehicle Category" id="Vehicle-Category" required>
           
-          <!-- Last Name -->
-          <input type="text" class="form-control mb-3" placeholder="Last Name" id="lastName" required>
+          <!-- Fuel Type-->
+          <input type="text" class="form-control mb-3" placeholder="Fuel Type" id="Fuel-Type" required>
           
-          <!-- Designation -->
-          <input type="text" class="form-control mb-3" placeholder="Designation" id="designation" required>
-          
-          <!-- Gender -->
-          <select class="form-control mb-3" id="gender" required>
-              <option value="" disabled selected>Gender</option>
-              <option value="MALE">Male</option>
-              <option value="FEMALE">Female</option>
+          <!-- Status -->
+          <select class="form-control mb-3" id="status" required>
+              <option value="" disabled selected>Status</option>
+              <option value="Available">Available</option>  
+              <option value="Unavailable">Unavailable</option>
+              <option value="In Maintenance">In Maintenance</option>
+              <option value="Out of Service">Out of Service</option>
           </select>
           
-          <!-- Date of Birth -->
-          <input type="date" class="form-control mb-3" placeholder="Date of Birth" id="dob" required>
+           <!-- Fuel Type-->
+           <input type="text" class="form-control mb-3" placeholder="remarks" id="Remarks" required>
+          
+          <!--  Date of Birth -->
+          <input type="text" class="form-control mb-3" placeholder="Allocated Staff" id="allocated-staff" required>
           
           <!-- Date Joined -->
-          <input type="date" class="form-control mb-3" placeholder="Date Joined" id="joinedDate" required>
+          <!-- <input type="date" class="form-control mb-3" placeholder="Date Joined" id="joinedDate" required> -->
           
           <!-- Address -->
-          <textarea class="form-control mb-3" placeholder="Address" id="address-line-1" required></textarea>
-          <textarea class="form-control mb-3" placeholder="Address" id="address-line-2" required></textarea>
-          <textarea class="form-control mb-3" placeholder="Address" id="address-line-3" required></textarea>
-          <textarea class="form-control mb-3" placeholder="Address" id="address-line-4" required></textarea>
-          <textarea class="form-control mb-3" placeholder="Address" id="address-line-5" required></textarea>
+          <!-- <textarea class="form-control mb-3" placeholder="Address" id="address-line-1" required></textarea> -->
+          <!-- <textarea class="form-control mb-3" placeholder="Address" id="address-line-2" required></textarea> -->
+          <!-- <textarea class="form-control mb-3" placeholder="Address" id="address-line-3" required></textarea> -->
+          <!-- <textarea class="form-control mb-3" placeholder="Address" id="address-line-4" required></textarea> -->
+          <!-- <textarea class="form-control mb-3" placeholder="Address" id="address-line-5" required></textarea> -->
           
           <!-- Contact Number -->
-          <input type="text" class="form-control mb-3" placeholder="Contact Number" id="contactNo" required>
+          <!-- <input type="text" class="form-control mb-3" placeholder="Contact Number" id="contactNo" required> -->
           
           <!-- Email -->
-          <input type="email" class="form-control mb-3" placeholder="Email" id="email" required>
-          
+          <!-- <input type="email" class="form-control mb-3" placeholder="Email" id="email" required> -->
+
           <!-- Role -->
-          <select class="form-control mb-3" id="role" required>
+        <!-- <select class="form-control mb-3" id="role" required>
             <option value="" disabled selected>Role</option>
             <option value="MANAGER">Manager</option>
             <option value="ADMINISTRATIVE">ADMINISTRATIVE</option>
             <option value="SCIENTIST">SCIENTIST</option>
-            <option value="OTHER">OTHER</option>
-        </select>
+            <option value="OTHER">OTHER</option> -->
+        <!-- </select> -->
         </div>
+
           <!-- CRUD Buttons -->
           <div class="ButtonBox">
               <button type="button" class="btn btn-success" id="saveButton">Save</button>
@@ -176,6 +184,6 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/controller/staffController.js" type="module"></script>
+<script src="/controller/vehicleController.js" type="module"></script>
 </body>
 </html>

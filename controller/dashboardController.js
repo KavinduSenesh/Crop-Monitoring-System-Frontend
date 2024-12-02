@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
     const iconWrappers = document.querySelectorAll(".icon-wrapper");
     
@@ -25,26 +24,3 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
-
-const openPopup = document.getElementById('openPopup');
-        const closePopup = document.getElementById('closePopup');
-        const popup = document.getElementById('popup');
-
-        openPopup.addEventListener('click', () => {
-            popup.style.display = 'flex';
-        });
-
-        closePopup.addEventListener('click', () => {
-            popup.style.display = 'none';
-        });
-
-        window.addEventListener('click', (event) => {
-            if (event.target === popup) {
-                popup.style.display = 'none';
-            }
-        });
-        document.querySelector(".logout-btn").addEventListener("click", () => {
-        window.location.href = "http://127.0.0.1:5500/GreenShadow%20Frontend/index.html";
-        });
-
-
