@@ -1,0 +1,437 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    display: flex;
+    background-color: #75dd8a26;
+}
+.content {
+    margin-left: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: calc(100vh - 40px);
+    margin-right: 20px;
+    padding: 20px;
+    flex-grow: 1;
+    background-color: #ffffff ; /*#f9f9f9 */
+    border-radius: 5px;
+}
+
+.table-container {
+    margin-top: 50px;
+}
+h3{
+    font-style: bold;
+    color: #014434;
+}
+
+.btn-popup {
+    margin-bottom: 15px;
+}
+
+/* searchbar */
+.container1 {
+    position: relative;
+    box-sizing: border-box;
+    width: fit-content;
+}
+
+.mainbox {
+    box-sizing: border-box;
+    position: relative;
+    width: 230px;
+    height: 40px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    border-radius: 160px;
+    background-color: #014434;
+    transition: all 0.3s ease;
+}
+
+.checkbox:focus {
+    border: none;
+    outline: none;
+}
+
+.checkbox:checked {
+    right: 10px;
+}
+
+.checkbox:checked ~ .mainbox {
+    width: 40px;
+}
+
+.checkbox:checked ~ .mainbox .search_input {
+    width: 0;
+    height: 0px;
+}
+
+.checkbox:checked ~ .mainbox .iconContainer {
+    padding-right: 8px;
+}
+
+.checkbox {
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 17px;
+    top: 10px;
+    z-index: 9;
+    cursor: pointer;
+    appearance: none;
+}
+
+.search_input {
+    box-sizing: border-box;
+    height: 100%;
+    width: 170px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding-bottom: 4px;
+    padding-left: 10px;
+    font-size: 1em;
+    color: white;
+    transition: all 0.3s ease;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.search_input::placeholder {
+    color: rgba(255, 255, 255, 0.776);
+}
+
+.iconContainer {
+    box-sizing: border-box;
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Vertically center */
+    justify-content: center; /* Horizontally center */
+    width: fit-content;
+    height: 100%; /* Match the height of the parent */
+    transition: all 0.3s ease;
+}
+
+
+.search_icon {
+    box-sizing: border-box;
+    fill: white;
+    font-size: 1.00em;
+}
+/* table */
+table {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  tr:nth-child(even) {
+    background-color: #9dfd9648; /* Light gray color for even rows */
+  }
+
+  th {
+    background-color:#014434; /* Green header */
+    color: white;
+  }
+
+/* button */
+/* From Uiverse.io by aaronross1 */ 
+.edit-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #014434;
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+    cursor: pointer;
+    transition-duration: 0.3s;
+    overflow: hidden;
+    text-decoration: none !important;
+}
+
+.edit-svgIcon {
+    width: 17px;
+    transition-duration: 0.3s;
+}
+
+.edit-svgIcon path {
+    fill: white;
+}
+
+.edit-button:hover {
+    width: 120px;
+    border-radius: 50px;
+    transition-duration: 0.3s;
+    background-color: #709364;
+    align-items: center;
+}
+
+.edit-button:hover .edit-svgIcon {
+    width: 20px;
+    transition-duration: 0.3s;
+    transform: translateY(60%);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+
+.edit-button::before {
+    display: none;
+    content: "Edit";
+    color: white;
+    transition-duration: 0.3s;
+    font-size: 2px;
+}
+
+.edit-button:hover::before {
+    display: block;
+    padding-right: 10px;
+    font-size: 13px;
+    opacity: 1;
+    transform: translateY(0px);
+    transition-duration: 0.3s;
+}
+
+/* Popup Styling for Green Shadow */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(5, 68, 52, 0.5); /* Transparent dark green background */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: #ffffff;
+    width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(5, 68, 52, 0.2);
+    padding: 30px;
+    position: relative;
+}
+
+.popup-content h2 {
+    color: #014434;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 30px;
+    color: #014434;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #709364;
+}
+
+.inputFieldBox input,
+.inputFieldBox select,
+.inputFieldBox textarea {
+    border: 1.5px solid #014434;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.inputFieldBox input:focus,
+.inputFieldBox select:focus,
+.inputFieldBox textarea:focus {
+    outline: none;
+    border-color: #709364;
+    box-shadow: 0 0 0 3px rgba(112, 147, 100, 0.2);
+}
+
+.ButtonBox {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.ButtonBox button {
+    flex-grow: 1;
+    margin: 0 5px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.ButtonBox .btn-success {
+    background-color: #014434;
+    border-color: #014434;
+}
+
+.ButtonBox .btn-success:hover {
+    background-color: #709364;
+    border-color: #709364;
+}
+
+.ButtonBox .btn-primary {
+    background-color: #709364;
+    border-color: #709364;
+}
+
+.ButtonBox .btn-primary:hover {
+    background-color: #014434;
+    border-color: #014434;
+}
+
+.ButtonBox .btn-danger {
+    background-color: #ff4d4d;
+    border-color: #ff4d4d;
+}
+
+.ButtonBox .btn-danger:hover {
+    background-color: #ff1a1a;
+    border-color: #ff1a1a;
+}
+
+.ButtonBox .btn-secondary {
+    background-color: #cccccc;
+    border-color: #cccccc;
+    color: #014434;
+}
+
+.ButtonBox .btn-secondary:hover {
+    background-color: #b3b3b3;
+    border-color: #b3b3b3;
+}
+
+/* Scrollbar Styling for overflow content */
+.popup-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.popup-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.popup-content::-webkit-scrollbar-thumb {
+    background: #014434;
+    border-radius: 4px;
+}
+
+.popup-content::-webkit-scrollbar-thumb:hover {
+    background: #709364;
+}
+
+/* Action buttons */
+.action-buttons {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+.action-buttons .btn-sm {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+}
+
+.action-buttons .view-log-btn {
+    background-color: #709364;
+    border-color: #709364;
+}
+
+.action-buttons .view-log-btn:hover {
+    background-color: #014434;
+    border-color: #014434;
+}
+
+.action-buttons .delete-log-btn {
+    background-color: #ff4d4d;
+    border-color: #ff4d4d;
+}
+
+.action-buttons .delete-log-btn:hover {
+    background-color: #ff1a1a;
+    border-color: #ff1a1a;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+.action-buttons .btn-sm {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+}
+
+
+/*new CropManagement.css file */
+.image-upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #014434;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.file-input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+}
+
+.file-input-label {
+    background-color: #014434;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.file-input-label:hover {
+    background-color: #709364;
+}
+
+.image-preview-container {
+    margin-bottom: 15px;
+    max-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#imagePreview {
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
