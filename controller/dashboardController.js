@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "vehicle.png": "http://127.0.0.1:5502/pages/vehicleManagement.html",
         "field.png": "/field-management.html",
         "Wrench.png": "http://127.0.0.1:5502/pages/equimpentManagement.html",
-        "crop.png": "/crop-management.html",
+        "crop.png": "http://127.0.0.1:5502/pages/cropManagement.html",
         "Clipboard.png": "/monitoring-logs.html",
         "Logout.png": "http://127.0.0.1:5502/index.html"
     };
