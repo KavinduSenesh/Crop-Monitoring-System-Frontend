@@ -1,3 +1,4 @@
+// Description: It handles the index page logic.
 document.addEventListener("DOMContentLoaded", () => {
     const signInButton = document.getElementById("signInButton");
     const registerLink = document.getElementById("registerLink");

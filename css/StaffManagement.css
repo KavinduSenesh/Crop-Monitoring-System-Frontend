@@ -204,10 +204,6 @@ table {
     transition-duration: 0.3s;
 }
 
-
-
-
-
 /* Popup Styling for Green Shadow */
 .popup {
     position: fixed;
@@ -343,4 +339,47 @@ table {
 
 .popup-content::-webkit-scrollbar-thumb:hover {
     background: #709364;
+}
+
+/* Action buttons */
+.action-buttons {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+.action-buttons .btn-sm {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+}
+
+.action-buttons .view-staff-btn {
+    background-color: #709364;
+    border-color: #709364;
+}
+
+.action-buttons .view-staff-btn:hover {
+    background-color: #014434;
+    border-color: #014434;
+}
+
+.action-buttons .delete-staff-btn {
+    background-color: #ff4d4d;
+    border-color: #ff4d4d;
+}
+
+.action-buttons .delete-staff-btn:hover {
+    background-color: #ff1a1a;
+    border-color: #ff1a1a;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+.action-buttons .btn-sm {
+    padding: 5px 10px;
+    font-size: 0.75rem;
 }
