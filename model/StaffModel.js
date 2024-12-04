@@ -90,6 +90,6 @@ export function updateStaff(staffId, staff){
       error: function (xhr, status, error) {
         reject(error);
       },
-});
-});
+  });
+  });
 }

@@ -354,22 +354,22 @@ table {
     font-size: 0.75rem;
 }
 
-.action-buttons .view-staff-btn {
+.action-buttons .view-vehicle-btn {
     background-color: #709364;
     border-color: #709364;
 }
 
-.action-buttons .view-staff-btn:hover {
+.action-buttons .view-vehicle-btn:hover {
     background-color: #014434;
     border-color: #014434;
 }
 
-.action-buttons .delete-staff-btn {
+.action-buttons .delete-vehicle-btn {
     background-color: #ff4d4d;
     border-color: #ff4d4d;
 }
 
-.action-buttons .delete-staff-btn:hover {
+.action-buttons .delete-vehicle-btn:hover {
     background-color: #ff1a1a;
     border-color: #ff1a1a;
 }

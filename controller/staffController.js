@@ -402,6 +402,33 @@ function updateStaffMember(){
         });
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    const updateButton = document.getElementById('updateButton');
+    if (updateButton) {
+        updateButton.addEventListener('click', updateStaffMember);
+    } else {
+        console.error('Update button not found');
+    }
+});
+
+// // Add search functionality
+// const searchButton = document.getElementById('searchButton');
+// const searchInput = document.getElementById('searchInput');
+
+// searchButton.addEventListener('click', () => {
+//     const query = searchInput.value.toLowerCase();
+//     const tableRows = document.querySelectorAll('#staff-table-body tr');
+
+//     tableRows.forEach(row => {
+//         const cells = row.querySelectorAll('td');
+//         const rowText = Array.from(cells).map(cell => cell.textContent.toLowerCase()).join(' ');
+//         if (rowText.includes(query)) {
+//             row.style.display = '';
+//         } else {
+//             row.style.display = 'none';
+//         }
+//     });
+// });
 
 
 
@@ -497,14 +524,6 @@ function updateStaffMember(){
 // }
 
 // Ensure the event listener is added after the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', () => {
-    const updateButton = document.getElementById('updateButton');
-    if (updateButton) {
-        updateButton.addEventListener('click', updateStaffMember);
-    } else {
-        console.error('Update button not found');
-    }
-});
 
 
 
