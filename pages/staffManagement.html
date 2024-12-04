@@ -124,44 +124,46 @@
       <form id="staffForm">
         <div class="inputFieldBox">
           <!-- Staff ID -->
-          
+          <!-- <input type="hidden" id="staffId" name="staffId" value="123" /> -->
+          <!-- <input type="text" name="staffId" placeholder="staff id" id="staffId" value=""> -->
+
           <!-- First Name -->
-          <input type="text" class="form-control mb-3" placeholder="First Name" id="firstName" required>
+          <input type="text" class="form-control mb-3" placeholder="First Name" id="firstName" name="firstName" required>
           
           <!-- Last Name -->
-          <input type="text" class="form-control mb-3" placeholder="Last Name" id="lastName" required>
+          <input type="text" class="form-control mb-3" placeholder="Last Name" id="lastName" name="lastName" required>
           
           <!-- Designation -->
-          <input type="text" class="form-control mb-3" placeholder="Designation" id="designation" required>
+          <input type="text" class="form-control mb-3" placeholder="Designation" id="designation" name="designation" required>
           
           <!-- Gender -->
-          <select class="form-control mb-3" id="gender" required>
+          <select class="form-control mb-3" id="gender" name="gender" required>
               <option value="" disabled selected>Gender</option>
               <option value="MALE">Male</option>
               <option value="FEMALE">Female</option>
           </select>
           
           <!-- Date of Birth -->
-          <input type="date" class="form-control mb-3" placeholder="Date of Birth" id="dob" required>
+          <input type="date" class="form-control mb-3" placeholder="Date of Birth" id="dob" name="dob" required>
           
           <!-- Date Joined -->
-          <input type="date" class="form-control mb-3" placeholder="Date Joined" id="joinedDate" required>
+          <input type="date" class="form-control mb-3" placeholder="Date Joined" id="joinedDate" name="joinedDate" required>
           
           <!-- Address -->
-          <textarea class="form-control mb-3" placeholder="Address" id="address-line-1" required></textarea>
-          <textarea class="form-control mb-3" placeholder="Address" id="address-line-2" required></textarea>
-          <textarea class="form-control mb-3" placeholder="Address" id="address-line-3" required></textarea>
-          <textarea class="form-control mb-3" placeholder="Address" id="address-line-4" required></textarea>
-          <textarea class="form-control mb-3" placeholder="Address" id="address-line-5" required></textarea>
+          <textarea class="form-control mb-3" placeholder="Address" id="address-line-1" name="addressLine1" required></textarea>
+          <textarea class="form-control mb-3" placeholder="Address" id="address-line-2" name="addressLine2" required></textarea>
+          <textarea class="form-control mb-3" placeholder="Address" id="address-line-3" name="addressLine3" required></textarea>
+          <textarea class="form-control mb-3" placeholder="Address" id="address-line-4" name="addressLine4" required></textarea>
+          <textarea class="form-control mb-3" placeholder="Address" id="address-line-5" name="addressLine5" required></textarea>
           
           <!-- Contact Number -->
-          <input type="text" class="form-control mb-3" placeholder="Contact Number" id="contactNo" required>
+          <input type="text" class="form-control mb-3" placeholder="Contact Number" id="contactNo" name="contactNo" required>
           
           <!-- Email -->
-          <input type="email" class="form-control mb-3" placeholder="Email" id="email" required>
+          <input type="email" class="form-control mb-3" placeholder="Email" id="email" name="email" required>
           
           <!-- Role -->
-          <select class="form-control mb-3" id="role" required>
+          <select class="form-control mb-3" id="role" name="role" required>
             <option value="" disabled selected>Role</option>
             <option value="MANAGER">Manager</option>
             <option value="ADMINISTRATIVE">ADMINISTRATIVE</option>
