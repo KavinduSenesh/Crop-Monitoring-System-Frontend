@@ -125,7 +125,7 @@
       <form id="staffForm">
         <div class="inputFieldBox">
           <!-- Vehicle Code -->
-          <!-- <input type="text" class="form-control mb-3" placeholder="Vehicle Code" id="vehicle-code" required> -->
+          <!-- <input type="hidden" class="form-control mb-3" placeholder="Vehicle Code" id="vehicle-code" required> -->
 
           <!-- License plate number -->
           <input type="text" class="form-control mb-3" placeholder="License plate number" id="License-plate-number" required>
@@ -146,10 +146,12 @@
           </select>
           
            <!-- Fuel Type-->
-           <input type="text" class="form-control mb-3" placeholder="remarks" id="Remarks" required>
+           <input type="text" class="form-control mb-3" placeholder="remarks" id="remarks" required>
           
           <!--  Date of Birth -->
-          <input type="text" class="form-control mb-3" placeholder="Allocated Staff" id="allocated-staff" required>
+          <select class="form-control mb-3" id="allocatedStaff" required>
+            <option value="N/A">none</option>
+        </select>
           
           <!-- Date Joined -->
           <!-- <input type="date" class="form-control mb-3" placeholder="Date Joined" id="joinedDate" required> -->
