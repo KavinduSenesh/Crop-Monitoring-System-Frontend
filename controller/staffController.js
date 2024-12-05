@@ -411,25 +411,59 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// // Add search functionality
-// const searchButton = document.getElementById('searchButton');
-// const searchInput = document.getElementById('searchInput');
+// Search functionality for staff management table
+$(document).ready(function() {
+    // Get references to the search input and staff table body
+    const searchInput = $('#Search');
+    const staffTableBody = $('#staff-table-body');
 
-// searchButton.addEventListener('click', () => {
-//     const query = searchInput.value.toLowerCase();
-//     const tableRows = document.querySelectorAll('#staff-table-body tr');
+    // Add event listener for input in the search field
+    searchInput.on('input', function() {
+        // Get the current search term and convert to lowercase
+        const searchTerm = $(this).val().toLowerCase().trim();
 
-//     tableRows.forEach(row => {
-//         const cells = row.querySelectorAll('td');
-//         const rowText = Array.from(cells).map(cell => cell.textContent.toLowerCase()).join(' ');
-//         if (rowText.includes(query)) {
-//             row.style.display = '';
-//         } else {
-//             row.style.display = 'none';
-//         }
-//     });
-// });
+        // Get all table rows
+        const rows = staffTableBody.find('tr');
 
+        // Loop through each row and check for matches
+        rows.each(function() {
+            const row = $(this);
+            let rowMatches = false;
+
+            // Check each cell for a match with the search term
+            row.find('td').each(function() {
+                const cellText = $(this).text().toLowerCase();
+                if (cellText.includes(searchTerm)) {
+                    rowMatches = true;
+                    return false; // Break the inner loop if a match is found
+                }
+            });
+
+            // Show or hide the row based on match
+            if (rowMatches) {
+                row.show();
+            } else {
+                row.hide();
+            }
+        });
+
+        // Optional: Add a message if no results are found
+        const visibleRows = rows.filter(':visible');
+        if (visibleRows.length === 0) {
+            const columnCount = staffTableBody.find('tr:first td').length;
+            staffTableBody.append(`
+                <tr class="no-results">
+                    <td colspan="${columnCount}" class="text-center">
+                        No staff members found matching your search.
+                    </td>
+                </tr>
+            `);
+        } else {
+            // Remove any existing no results message
+            staffTableBody.find('.no-results').remove();
+        }
+    });
+});
 
 
 
