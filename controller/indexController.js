@@ -1,35 +1,62 @@
-// Description: It handles the index page logic.
-document.addEventListener("DOMContentLoaded", () => {
-    const signInButton = document.getElementById("signInButton");
-    const registerLink = document.getElementById("registerLink");
+import { login } from "../model/indexModel.js";
+import { getCookie, saveCookie } from "../model/tokenModel.js";
 
-    signInButton.addEventListener("click", () => {
-        const email = document.getElementById("email").value.trim();
-        const password = document.getElementById("password").value.trim();
-        const acceptCookies = document.getElementById("acceptCookies").checked;
+$("#signInButton").click(function () {
+  const email = $("#email").val();
+  const password = $("#password").val();
+  const acceptCookies = $("#acceptCookies").prop("checked");
 
-        // Basic validation
-        if (!email) {
-            alert("Please enter your email.");
-            return;
-        }
+  if (!acceptCookies) {
+    alert("Please accept cookies to proceed");
+    return;
+  }
 
-        if (!password) {
-            alert("Please enter your password.");
-            return;
-        }
-
-        if (!acceptCookies) {
-            alert("You must agree to the terms and conditions.");
-            return;
-        }
-        // Redirect to dashboard (replace with your dashboard URL)
-        window.location.href = "http://127.0.0.1:5502/pages/dashboard.html";
-    });
-
-    registerLink.addEventListener("click", (event) => {
-        event.preventDefault(); // Prevent the default link behavior
-        // Redirect to registration page (replace with your register page URL)
-        window.location.href = "http://127.0.0.1:5502/pages/signup.html";
+  login(email, password)
+    .then((result) => {
+      console.log("Login result:", result);
+      localStorage.setItem("userEmail", email);
+        const token = result.token;
+        saveCookie("authToken", token);
+        console.log("Token saved as cookie:", getCookie("authToken") );
+      
+      window.location = "/pages/dashboard.html";
+    }).catch((error) => {
+      console.log("Login error:", error);
     });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Redirect to dashboard (replace with your dashboard URL)
+  // window.location.href = "http://127.0.0.1:5502/pages/dashboard.html"

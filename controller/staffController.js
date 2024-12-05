@@ -1,4 +1,4 @@
-import { deleteStaffMember, getAllStaffMembers as fetchStaffMembers, updateStaff } from "../model/StaffModel.js";
+import { deleteStaffMember, getAllStaff as fetchStaffMembers, getAllStaff, updateStaff, saveStaff } from "../model/StaffModel.js";
 
 var targetStaffId = null;
 
@@ -58,13 +58,7 @@ document.querySelector(".logout-btn").addEventListener("click", () => {
 async function getAllStaffMembers() {
     try {
         // Replace with your actual API endpoint
-        const response = await fetch('http://localhost:5055/greenShadow/api/v1/staff');
-        
-        if (!response.ok) {
-            throw new Error('Failed to fetch staff members');
-        }
-        
-        const staffList = await response.json();
+        const staffList = await getAllStaff();
         
         // Populate the table with retrieved staff members
         populateStaffTable(staffList);
@@ -158,82 +152,82 @@ function openUpdatePopup(staffId) {
     fetchStaffDetails(staffId);
 }
 
-// Function to fetch staff details and populate form fields
-async function fetchStaffDetails(staffId) {
-    try {
-        const response = await fetch(`http://localhost:5055/greenShadow/api/v1/staff/${staffId}`);
+// // Function to fetch staff details and populate form fields
+// async function fetchStaffDetails(staffId) {
+//     try {
+//         const response = await fetch(`http://localhost:5055/greenShadow/api/v1/staff/${staffId}`);
         
-        if (!response.ok) {
-            throw new Error('Failed to fetch staff details');
-        }
+//         if (!response.ok) {
+//             throw new Error('Failed to fetch staff details');
+//         }
         
-        const staffDetails = await response.json();
+//         const staffDetails = await response.json();
         
-        // Helper function to safely set date values
-        const safeSetDateValue = (elementId, dateValue) => {
-            const element = document.getElementById(elementId);
-            if (element && dateValue) {
-                // Ensure date is in correct format
-                const formattedDate = new Date(dateValue).toISOString().split('T')[0];
-                element.value = formattedDate;
-            }
-        };
+//         // Helper function to safely set date values
+//         const safeSetDateValue = (elementId, dateValue) => {
+//             const element = document.getElementById(elementId);
+//             if (element && dateValue) {
+//                 // Ensure date is in correct format
+//                 const formattedDate = new Date(dateValue).toISOString().split('T')[0];
+//                 element.value = formattedDate;
+//             }
+//         };
 
-        // Add this line to set the staff ID in a hidden input
-        // If the hidden input doesn't exist, create it
-        let hiddenStaffIdInput = document.getElementById('staffId');
-        if (!hiddenStaffIdInput) {
-            hiddenStaffIdInput = document.createElement('input');
-            hiddenStaffIdInput.type = 'hidden';
-            hiddenStaffIdInput.id = 'staffId';
-            hiddenStaffIdInput.name = 'staffId';
-            document.getElementById('staffForm').appendChild(hiddenStaffIdInput);
-        }
-        hiddenStaffIdInput.value = staffId;
+//         // Add this line to set the staff ID in a hidden input
+//         // If the hidden input doesn't exist, create it
+//         let hiddenStaffIdInput = document.getElementById('staffId');
+//         if (!hiddenStaffIdInput) {
+//             hiddenStaffIdInput = document.createElement('input');
+//             hiddenStaffIdInput.type = 'hidden';
+//             hiddenStaffIdInput.id = 'staffId';
+//             hiddenStaffIdInput.name = 'staffId';
+//             document.getElementById('staffForm').appendChild(hiddenStaffIdInput);
+//         }
+//         hiddenStaffIdInput.value = staffId;
         
-        // Destructure and set values with null checks
-        const {
-            firstName = '', 
-            lastName = '', 
-            designation = '', 
-            gender = '', 
-            dateOfBirth,
-            joinedDate,
-            addressLine1 = '',
-            addressLine2 = '',
-            addressLine3 = '',
-            addressLine4 = '',
-            addressLine5 = '',
-            contactNo = '',
-            email = '',
-            role = ''
-        } = staffDetails;
+//         // Destructure and set values with null checks
+//         const {
+//             firstName = '', 
+//             lastName = '', 
+//             designation = '', 
+//             gender = '', 
+//             dateOfBirth,
+//             joinedDate,
+//             addressLine1 = '',
+//             addressLine2 = '',
+//             addressLine3 = '',
+//             addressLine4 = '',
+//             addressLine5 = '',
+//             contactNo = '',
+//             email = '',
+//             role = ''
+//         } = staffDetails;
         
-        // Set form field values
-        document.getElementById('firstName').value = firstName;
-        document.getElementById('lastName').value = lastName;
-        document.getElementById('designation').value = designation;
-        document.getElementById('gender').value = gender;
+//         // Set form field values
+//         document.getElementById('firstName').value = firstName;
+//         document.getElementById('lastName').value = lastName;
+//         document.getElementById('designation').value = designation;
+//         document.getElementById('gender').value = gender;
         
-        // Set dates
-        safeSetDateValue('dob', dateOfBirth);
-        safeSetDateValue('joinedDate', joinedDate);
+//         // Set dates
+//         safeSetDateValue('dob', dateOfBirth);
+//         safeSetDateValue('joinedDate', joinedDate);
         
-        // Set address lines
-        document.getElementById('address-line-1').value = addressLine1;
-        document.getElementById('address-line-2').value = addressLine2;
-        document.getElementById('address-line-3').value = addressLine3;
-        document.getElementById('address-line-4').value = addressLine4;
-        document.getElementById('address-line-5').value = addressLine5;
+//         // Set address lines
+//         document.getElementById('address-line-1').value = addressLine1;
+//         document.getElementById('address-line-2').value = addressLine2;
+//         document.getElementById('address-line-3').value = addressLine3;
+//         document.getElementById('address-line-4').value = addressLine4;
+//         document.getElementById('address-line-5').value = addressLine5;
         
-        document.getElementById('contactNo').value = contactNo;
-        document.getElementById('email').value = email;
-        document.getElementById('role').value = role;
-    } catch (error) {
-        console.error('Error fetching staff details:', error);
-        alert('Failed to load staff details. Please try again.');
-    }
-}
+//         document.getElementById('contactNo').value = contactNo;
+//         document.getElementById('email').value = email;
+//         document.getElementById('role').value = role;
+//     } catch (error) {
+//         console.error('Error fetching staff details:', error);
+//         alert('Failed to load staff details. Please try again.');
+//     }
+// }
 
 // Function to confirm and handle staff deletion
 async function confirmDeleteStaff(staffId) {
@@ -326,19 +320,7 @@ async function saveStaffMember(event) {
         role: formData.get('role')
     };
 
-    try {
-        const response = await fetch('http://localhost:5055/greenShadow/api/v1/staff', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(staffData)
-        });
-
-        if (!response.ok) {
-            throw new Error('Failed to save staff member');
-        }
-
+        const response = await saveStaff(staffData);
         // Refresh the staff list after successful save
         getAllStaffMembers();
         alert('Staff member saved successfully');
@@ -346,10 +328,10 @@ async function saveStaffMember(event) {
         // Close the popup
         const popup = document.getElementById('popup');
         popup.style.display = 'none';
-    } catch (error) {
-        console.error('Error saving staff member:', error);
-        alert('Failed to save staff member. Please try again.');
-    }
+    
+        // console.error('Error saving staff member:', error);
+        // alert('Failed to save staff member. Please try again.');
+    
 }
 
 // Add event listener for save button
@@ -465,9 +447,61 @@ $(document).ready(function() {
     });
 });
 
+// async function fetchStaffDetails(staffId) {
+//     try {
+//         const response = await fetch(`http://localhost:5055/greenShadow/api/v1/staff/${staffId}`);
+        
+//         console.log('Response status:', response.status);
+        
+//         if (!response.ok) {
+//             throw new Error('Failed to fetch staff details');
+//         }
+        
+//         const staffDetails = await response.json();
+//         console.log('Staff details:', staffDetails);  // Log the entire response
+        
+//         // Rest of the function remains the same
+//     } catch (error) {
+//         console.error('Error fetching staff details:', error);
+//     }
+// }
 
 
-
+async function fetchStaffDetails(staffId) {
+    try {
+        const response = await fetch(`http://localhost:5055/greenShadow/api/v1/staff/${staffId}`);
+        
+        if (!response.ok) {
+            throw new Error('Failed to fetch staff details');
+        }
+        
+        const staffDetails = await response.json();
+        
+        // jQuery field population
+        $('#firstName').val(staffDetails.firstName);
+        $('#lastName').val(staffDetails.lastName);
+        $('#designation').val(staffDetails.designation);
+        $('#gender').val(staffDetails.gender);
+        
+        // Date formatting
+        $('#dob').val(new Date(staffDetails.dateOfBirth).toISOString().split('T')[0]);
+        $('#joinedDate').val(new Date(staffDetails.joinedDate).toISOString().split('T')[0]);
+        
+        // Address lines
+        $('#address-line-1').val(staffDetails.addressLine1);
+        $('#address-line-2').val(staffDetails.addressLine2);
+        $('#address-line-3').val(staffDetails.addressLine3);
+        $('#address-line-4').val(staffDetails.addressLine4);
+        $('#address-line-5').val(staffDetails.addressLine5);
+        
+        $('#contactNo').val(staffDetails.contactNo);
+        $('#email').val(staffDetails.email);
+        $('#role').val(staffDetails.role);
+    } catch (error) {
+        console.error('Error fetching staff details:', error);
+        alert('Failed to load staff details. Please try again.');
+    }
+}
 
 
 

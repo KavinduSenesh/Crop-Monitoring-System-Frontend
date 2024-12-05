@@ -1,8 +1,13 @@
+import { getCookie } from "./tokenModel.js";
+
 export function getAllVehicles(){
     return new Promise((resolve, reject) => {
         $.ajax({
             url: "http://localhost:5055/greenShadow/api/v1/vehicle",
             type: "GET",
+            headers: {
+              Authorization: "Bearer " + getCookie("authToken"),
+            },
             dataType: "json", // Automatically parses JSON response
             success: (response) => {
                 console.log("Vehicles fetched successfully:", response);
@@ -22,6 +27,9 @@ export function saveVehicle(vehicleData){
         $.ajax({
             url: "http://localhost:5055/greenShadow/api/v1/vehicle",
             type: "POST",
+            headers: {
+              Authorization: "Bearer " + getCookie("authToken"),
+            },
             contentType: "application/json",
             data: JSON.stringify(vehicleData),
             success: (response) => {
@@ -41,6 +49,9 @@ export function getVehicle(id){
       $.ajax({
         url: `http://localhost:5055/greenShadow/api/v1/vehicle/${id}`,
         type: "GET",
+        headers: {
+          Authorization: "Bearer " + getCookie("authToken"),
+        },
         contentType: "application/json",
         // headers: {
         //   Authorization: "Bearer " + getCookie("authToken"),
@@ -64,7 +75,7 @@ export function getVehicle(id){
         // contentType: "application/json",
         headers: {
             "Content-Type": "application/json",
-        //   Authorization: "Bearer " + getCookie("authToken"),
+          Authorization: "Bearer " + getCookie("authToken"),
         },
         data: JSON.stringify(vehicle),
         success: function (result) {
@@ -82,6 +93,9 @@ export function deleteVehicle(vehicle_id){
       $.ajax({
         url: `http://localhost:5055/greenShadow/api/v1/vehicle/${vehicle_id}`,
         type: "DELETE",
+        headers: {
+          Authorization: "Bearer " + getCookie("authToken"),
+        },
         success: (response) => {
           console.log("Vehicle member deleted successfully:", response);
           resolve(response);

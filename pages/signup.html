@@ -11,6 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/css/signup.css" />
+    
   </head>
   <body>
     <div class="form-1">
@@ -55,19 +56,18 @@
           </div> -->
 
           <div class="dropdown-container">
-            <div class="dropdown">
-              <label for="role">Select Your Role</label>
-              <button class="dropdown-btn">
-                <span>Role</span>
-                <span class="arrow"></span>
-              </button>
-              <ul class="dropdown-content">
-                <li><a href="#">Manager</a></li>
-                <li><a href="#">Administrative</a></li>
-                <li><a href="#">Scientist</a></li>
-              </ul>
+            <div class="mb-3">
+              <label for="role" class="form-label">Select Your Role</label>
+              <select id="role" class="form-select">
+                <option value="" disabled selected>Role</option>
+                <option value="MANAGER">Manager</option>
+                <option value="ADMINISTRATIVE">Administrative</option>
+                <option value="SCIENTIST">Scientist</option>
+              </select>
             </div>
           </div>
+          
+          
 
           <button type="button" class="btn btn-primary mt-3" id="signInButton">Sign Up</button>
           <!-- <div class="links">
@@ -76,6 +76,7 @@
         </form>
       </div>
     </div>
-    <script src="/controller/signupController.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="module" src="/controller/signupController.js"></script>
  </body>
 </html>

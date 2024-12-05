@@ -1,9 +1,15 @@
+import {getCookie} from "./tokenModel.js";
+
 //save staff member
-export function saveStaffMember(staffData) {
+export function saveStaff(staffData) {
+  console.log("Saving staff member:", staffData);
     return new Promise((resolve, reject) => {
       $.ajax({
         url: "http://localhost:5055/greenShadow/api/v1/staff",
         type: "POST",
+        headers: {
+          Authorization: "Bearer " + getCookie("authToken"),
+        },
         contentType: "application/json", // Specify the content type as JSON
         data: JSON.stringify(staffData), // Convert the staff data object to a JSON string
         success: (response) => {
@@ -18,11 +24,15 @@ export function saveStaffMember(staffData) {
     });
   }
   
-export function getAllStaffMembers() {
-    return new Promise((resolve, reject) => {
+export function getAllStaff() {  
+  return new Promise((resolve, reject) => {
         $.ajax({
             url: "http://localhost:5055/greenShadow/api/v1/staff", // Ensure this matches your backend endpoint
             type: "GET",
+            // mode: "no-cors",
+            headers: {
+              Authorization: "Bearer " + getCookie("authToken"),
+            },
             dataType: "json", // Automatically parses JSON response
             success: (response) => {
                 console.log("Staff members fetched successfully:", response); // Log response
@@ -36,11 +46,16 @@ export function getAllStaffMembers() {
     });
 }
 
+
 export function deleteStaffMember(staffId){
   return new Promise((resolve, reject) => {
     $.ajax({
       url: `http://localhost:5055/greenShadow/api/v1/staff/${staffId}`,
       type: "DELETE",
+      headers: {
+        Authorization: "Bearer " + getCookie("authToken"),
+        "content-type": "application/json",
+      },
       success: (response) => {
         console.log("Staff member deleted successfully:", response);
         resolve(response);
@@ -52,6 +67,28 @@ export function deleteStaffMember(staffId){
     });
   })
 }
+
+export function updateStaff(staffId, staff){
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url: `http://localhost:5055/greenShadow/api/v1/staff/${staffId}`,
+      type: "PATCH",
+      contentType: "application/json",
+      headers: {
+        Authorization: "Bearer " + getCookie("authToken"),
+      },
+      data: JSON.stringify(staff),
+      success: function (result) {
+        console.log(result);
+        resolve(result);
+      },
+      error: function (xhr, status, error) {
+        reject(error);
+      },
+  });
+  });
+}
+
 
 // export function updateStaffMember(staffId, staffData) {
 //   console.log(staffId, staffData);
@@ -72,24 +109,3 @@ export function deleteStaffMember(staffId){
 //       });
 //   });
 // }
-
-export function updateStaff(staffId, staff){
-  return new Promise((resolve, reject) => {
-    $.ajax({
-      url: `http://localhost:5055/greenShadow/api/v1/staff/${staffId}`,
-      type: "PATCH",
-      contentType: "application/json",
-      // headers: {
-      //   Authorization: "Bearer " + getCookie("authToken"),
-      // },
-      data: JSON.stringify(staff),
-      success: function (result) {
-        console.log(result);
-        resolve(result);
-      },
-      error: function (xhr, status, error) {
-        reject(error);
-      },
-  });
-  });
-}

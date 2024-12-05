@@ -1,53 +1,75 @@
-// Dropdown Menu Functionality
-document.addEventListener('DOMContentLoaded', () => {
-  const dropdowns = document.querySelectorAll('.dropdown');
+import { register } from "../model/SignupModel.js";
 
-  dropdowns.forEach(dropdown => {
-      const dropdownBtn = dropdown.querySelector('.dropdown-btn');
-      const dropdownContent = dropdown.querySelector('.dropdown-content');
-      const dropdownLinks = dropdownContent.querySelectorAll('li a');
+$("#signInButton").click(function() {
+    const email = $("#email").val();
+    const password = $("#password").val();
+    const role = $("#role").val();
+    const acceptCookies = $("#acceptCookies").prop("checked");
 
-      // Toggle dropdown when button is clicked
-      dropdownBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          dropdown.classList.toggle('open');
-      });
+    register(email, password, role).then((result) => {
+      window.location.href = "http://127.0.0.1:5502/index.html";
+    }).catch((error) => {
+        console.log("Failed to register user");
+    });
+    
+    
 
-      // Select dropdown item
-      dropdownLinks.forEach(link => {
-          link.addEventListener('click', (e) => {
-              e.preventDefault();
-              const selectedText = link.textContent;
-              dropdownBtn.querySelector('span:first-child').textContent = selectedText;
-              dropdown.classList.remove('open');
-          });
-      });
+    // Redirect to dashboard (replace with your dashboard URL)
+    // window.location.href = "http://127.0.0.1:5502/pages/dashboard.html";
+})
 
-      // Close dropdown when clicking outside
-      document.addEventListener('click', (e) => {
-          if (!dropdown.contains(e.target)) {
-              dropdown.classList.remove('open');
-          }
-      });
-  });
-});
 
-    // Event listener for the Sign In button
-    document.getElementById("signInButton").addEventListener("click", () => {
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-      
-        if (email && password) {
-          // Example: You can validate or process login credentials here
-          console.log(`Email: ${email}, Password: ${password}`);
-          // Redirect to the dashboard or staff management page
-          window.location.href = "http://127.0.0.1:5502/pages/dashboard.html"; // Update with your actual target URL
-        } else {
-          alert("Please enter both email and password!");
-        }
-      });
-      
-      document.getElementById("registerLink").addEventListener("click", (event) => {
-        event.preventDefault();
-        window.location.href = "staffManagement.html";
-  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Description: It handles the index page logic.
+// document.addEventListener("DOMContentLoaded", () => {
+//     const signInButton = document.getElementById("signInButton");
+//     const registerLink = document.getElementById("registerLink");
+
+//     signInButton.addEventListener("click", () => {
+//         const email = document.getElementById("email").value.trim();
+//         const password = document.getElementById("password").value.trim();
+//         const acceptCookies = document.getElementById("acceptCookies").checked;
+
+//         // Basic validation
+//         if (!email) {
+//             alert("Please enter your email.");
+//             return;
+//         }
+
+//         if (!password) {
+//             alert("Please enter your password.");
+//             return;
+//         }
+
+//         if (!acceptCookies) {
+//             alert("You must agree to the terms and conditions.");
+//             return;
+//         }
+//         // Redirect to dashboard (replace with your dashboard URL)
+//         window.location.href = "http://127.0.0.1:5502/pages/dashboard.html";
+//     });
+
+//     registerLink.addEventListener("click", (event) => {
+//         event.preventDefault(); // Prevent the default link behavior
+//         // Redirect to registration page (replace with your register page URL)
+//         window.location.href = "http://127.0.0.1:5502/pages/signup.html";
+//     });
+// });
