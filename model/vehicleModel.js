@@ -35,3 +35,44 @@ export function saveVehicle(vehicleData){
         });
     });
 }
+
+export function getVehicle(id){
+    return new Promise((resolve, reject) => {
+      $.ajax({
+        url: `http://localhost:5055/greenShadow/api/v1/vehicle/${id}`,
+        type: "GET",
+        contentType: "application/json",
+        // headers: {
+        //   Authorization: "Bearer " + getCookie("authToken"),
+        // },
+        success: function (result) {
+          resolve(result);
+        },
+        error: function (xhr, status, error) {
+          reject(error);
+        },
+  });
+  })
+  }
+
+  export function updateVehicle(vehicle_id, vehicle, staff_id) {
+    console.log("Updating Vehicle:", vehicle, staff_id, vehicle_id);
+    return new Promise((resolve, reject) => {
+      $.ajax({
+        url: `http://localhost:5055/greenShadow/api/v1/vehicle/${vehicle_id}?staffId=${staff_id}`,
+        method: "PATCH",
+        // contentType: "application/json",
+        headers: {
+            "Content-Type": "application/json",
+        //   Authorization: "Bearer " + getCookie("authToken"),
+        },
+        data: JSON.stringify(vehicle),
+        success: function (result) {
+          resolve(result);
+        },
+        error: function (xhr, status, error) {
+          reject(error);
+        },
+  });
+ });
+  }

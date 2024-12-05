@@ -1,4 +1,4 @@
-import { getAllVehicles, saveVehicle } from "../model/vehicleModel.js";
+import { getAllVehicles, getVehicle, saveVehicle, updateVehicle } from "../model/vehicleModel.js";
 import { getAllStaffMembers } from "../model/staffModel.js";
 
 var targetVehicleId = null;
@@ -127,3 +127,49 @@ $("#openPopup").click(() => {
     loadDataToSave();
 });
 
+$("#updateButton").click(() => {
+    const licensePlateNumber = $("#License-plate-number").val();
+    const vehicleCategory = $("#Vehicle-Category").val();
+    const fuelType = $("#Fuel-Type").val();
+    const status = $("#status").val();
+    const remarks = $("#remarks").val();
+    const allocatedStaff = $("#allocatedStaff").val();
+
+    const vehicleData = {
+        "licensePlateNumber": licensePlateNumber,
+        "vehicleCategory": vehicleCategory ,
+        "fuelType": fuelType ,
+        "status": status, 
+        "remarks":  remarks,
+        "staffId": allocatedStaff
+    };
+
+
+    updateVehicle(targetVehicleId, vehicleData, allocatedStaff).then(() => { 
+        loadTable();
+
+        alert("Vehicle updated successfully!");
+    }).catch((error) => {
+        console.log("Failed to update vehicle: " + error);
+    });
+});
+
+function loadDataToupdate(){
+    getVehicle(targetVehicleId).then((vehicle) => {
+        $("#License-plate-number").val(vehicle.licensePlateNumber);
+        $("#Vehicle-Category").val(vehicle.vehicleCategory);
+        $("#Fuel-Type").val(vehicle.fuelType);
+        $("#status").val(vehicle.status);
+        $("#remarks").val(vehicle.remarks);
+        $("#allocatedStaff").val(vehicle.staffId);
+    }).catch((error) => {
+        console.error("Failed to load vehicle: " + error);
+    });
+}
+
+$("#vehicle-table-body").on("click", ".view-vehicle-btn", (event) => {
+    targetVehicleId = event.target.getAttribute("data-id");
+    loadDataToSave();
+    loadDataToupdate();
+    popup.style.display = 'flex';
+});
