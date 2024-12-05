@@ -75,4 +75,21 @@ export function getVehicle(id){
         },
   });
  });
+}
+
+export function deleteVehicle(vehicle_id){
+    return new Promise((resolve, reject) => {
+      $.ajax({
+        url: `http://localhost:5055/greenShadow/api/v1/vehicle/${vehicle_id}`,
+        type: "DELETE",
+        success: (response) => {
+          console.log("Vehicle member deleted successfully:", response);
+          resolve(response);
+        },
+        error: (jqXHR, textStatus, errorThrown) => {
+          console.error(`Failed to delete vehicle member: ${textStatus}, ${errorThrown}`);
+          reject(`Request failed with status: ${jqXHR.status}`);
+        },
+      });
+    })
   }

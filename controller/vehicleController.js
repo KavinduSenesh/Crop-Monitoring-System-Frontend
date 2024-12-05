@@ -1,4 +1,4 @@
-import { getAllVehicles, getVehicle, saveVehicle, updateVehicle } from "../model/vehicleModel.js";
+import { deleteVehicle, getAllVehicles, getVehicle, saveVehicle, updateVehicle } from "../model/vehicleModel.js";
 import { getAllStaffMembers } from "../model/staffModel.js";
 
 var targetVehicleId = null;
@@ -79,11 +79,12 @@ function loadTable(){
     })
 }
 
+//load data to table
 $(document).ready(() => {
     loadTable();
 });
 
-
+//save button function
 $("#saveButton").click(() => {
     const licensePlateNumber = $("#License-plate-number").val();
     const vehicleCategory = $("#Vehicle-Category").val();
@@ -110,6 +111,7 @@ $("#saveButton").click(() => {
     });
 });
 
+//load staff ids
 function loadDataToSave(){
     const staffCombo = $("#allocatedStaff")
     staffCombo.empty();
@@ -127,6 +129,7 @@ $("#openPopup").click(() => {
     loadDataToSave();
 });
 
+//update button function
 $("#updateButton").click(() => {
     const licensePlateNumber = $("#License-plate-number").val();
     const vehicleCategory = $("#Vehicle-Category").val();
@@ -172,4 +175,130 @@ $("#vehicle-table-body").on("click", ".view-vehicle-btn", (event) => {
     loadDataToSave();
     loadDataToupdate();
     popup.style.display = 'flex';
+});
+
+//delete button function
+$("#vehicle-table-body").on("click", ".delete-vehicle-btn", (event) => {
+    const vehicleId = event.target.getAttribute("data-id");
+    
+    if (confirm("Are you sure you want to delete this vehicle?")) {
+        deleteVehicle(vehicleId).then(() => {
+            loadTable();
+            alert("Vehicle deleted successfully!");
+        }).catch((error) => {
+            console.error("Failed to delete vehicle: " + error);
+            alert("Failed to delete vehicle. Please try again.");
+        });
+    }
+});
+
+
+//edit button action
+$("#vehicle-table-body").on("click", ".view-vehicle-btn", (event) => {
+    targetVehicleId = event.target.getAttribute("data-id");
+    loadDataToSave();
+    loadDataToupdate();
+    popup.style.display = 'flex';
+    
+    // Hide save button, show update and delete buttons
+    $("#saveButton").hide();
+    $("#updateButton, #deleteButton").show();
+});
+
+function resetFormForNewEntry() {
+    // Reset the form
+    $("#License-plate-number, #Vehicle-Category, #Fuel-Type, #status, #remarks, #allocatedStaff").val('');
+    
+    // Show save button and hide update/delete buttons
+    $("#saveButton").show();
+    $("#updateButton, #deleteButton").hide();
+}
+
+// Modify existing event listeners to manage button visibility
+openPopup.addEventListener('click', () => {
+    popup.style.display = 'flex';
+    resetFormForNewEntry();
+});
+
+// Add delete button functionality
+$("#deleteButton").click(() => {
+    if (confirm("Are you sure you want to delete this vehicle?")) {
+        deleteVehicle(targetVehicleId).then(() => {
+            loadTable();
+            popup.style.display = 'none';
+            alert("Vehicle deleted successfully!");
+        }).catch((error) => {
+            console.error("Failed to delete vehicle: " + error);
+            alert("Failed to delete vehicle. Please try again.");
+        });
+    }
+});
+//edit button action
+
+//view button popup
+$("#vehicle-table-body").on("click", ".view-vehicle-btn", (event) => {
+    targetVehicleId = event.target.getAttribute("data-id");
+    loadDataToSave();
+    loadDataToupdate();
+    popup.style.display = 'flex';
+    
+    // Hide save and delete buttons, show only update button
+    $("#saveButton, #deleteButton").hide();
+    $("#updateButton").show();
+ });
+ //view button popup
+
+
+ // Search functionality for staff management table
+$(document).ready(function() {
+    // Get references to the search input and staff table body
+    const searchInput = $('#Search');
+    const vehicleTableBody = $('#vehicle-table-body');
+
+    // Add event listener for input in the search field
+    searchInput.on('input', function() {
+        // Get the current search term and convert to lowercase
+        const searchTerm = $(this).val().toLowerCase().trim();
+
+        // Get all table rows
+        const rows = vehicleTableBody.find('tr');
+
+        // Loop through each row and check for matches
+        rows.each(function() {
+            const row = $(this);
+            let rowMatches = false;
+
+            // Check each cell for a match with the search term
+            row.find('td').each(function() {
+                const cellText = $(this).text().toLowerCase();
+                if (cellText.includes(searchTerm)) {
+                    rowMatches = true;
+                    return false; // Break the inner loop if a match is found
+                }
+            });
+
+            // Show or hide the row based on match
+            if (rowMatches) {
+                row.show();
+            } else {
+                row.hide();
+            }
+        });
+
+        // Optional: Add a message if no results are found
+        const visibleRows = rows.filter(':visible');
+        if (visibleRows.length === 0) {
+            const columnCount = vehicleTableBody.find('tr:first td').length;
+            vehicleTableBody.append(`
+                <tr class="no-results">
+                    <td colspan="${columnCount}" class="text-center">
+                        No vehicle found matching your search.
+                    </td>
+                </tr>
+            `);
+        } else {
+            // Remove any existing no results message
+            vehicleTableBody.find('.no-results').remove();
+        }
+    });
 });
