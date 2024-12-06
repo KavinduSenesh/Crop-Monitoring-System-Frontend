@@ -1,5 +1,5 @@
 import { deleteVehicle, getAllVehicles, getVehicle, saveVehicle, updateVehicle } from "../model/vehicleModel.js";
-import { getAllStaffMembers } from "../model/staffModel.js";
+import { getAllStaff } from "../model/staffModel.js";
 
 var targetVehicleId = null;
 
@@ -115,7 +115,7 @@ $("#saveButton").click(() => {
 function loadDataToSave(){
     const staffCombo = $("#allocatedStaff")
     staffCombo.empty();
-    getAllStaffMembers().then((staff) => {
+    getAllStaff().then((staff) => {
         staff.forEach((staff) => {
             const option = `<option value="${staff.staffId}">${staff.staffId} , ${staff.firstName}</option>`;
             staffCombo.append(option);
@@ -150,7 +150,6 @@ $("#updateButton").click(() => {
 
     updateVehicle(targetVehicleId, vehicleData, allocatedStaff).then(() => { 
         loadTable();
-
         alert("Vehicle updated successfully!");
     }).catch((error) => {
         console.log("Failed to update vehicle: " + error);
@@ -233,7 +232,6 @@ $("#deleteButton").click(() => {
         });
     }
 });
-//edit button action
 
 //view button popup
 $("#vehicle-table-body").on("click", ".view-vehicle-btn", (event) => {

@@ -1,3 +1,5 @@
+import { getAllCrops } from "../model/cropModel.js";
+
 //dashboard
 document.addEventListener("DOMContentLoaded", () => {
     const iconWrappers = document.querySelectorAll(".icon-wrapper");
@@ -48,3 +50,31 @@ const openPopup = document.getElementById('openPopup');
         window.location.href = "http://127.0.0.1:5500/GreenShadow%20Frontend/index.html";
 });
 
+function loadTable() {
+    const table = $("#staff-table-body");
+    table.empty();
+
+    getAllCrops().then((crops) => {
+        crops.forEach((crop) => {
+            const row = `<tr>
+                <td>${crop.cropCommonName}</td>
+                <td>${crop.cropScientificName}</td>
+                <td>${crop.category}</td>
+                <td>${crop.cropSeason}</td>
+                <td>
+                    <div class="action-buttons">
+                        <button class="btn btn-sm btn-primary view-crop-btn" data-id="${crop.cropCode}">View</button>
+                        <button class="btn btn-sm btn-danger delete-crop-btn" data-id="${crop.cropCode}">Delete</button>
+                    </div>
+                </td>
+            </tr>`;
+            table.append(row);
+        });
+    }).catch((error) => {
+        console.error("Failed to load crops: " + error);
+    });
+}
+
+$(document).ready(() => {
+    loadTable();
+});

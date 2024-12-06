@@ -46,6 +46,25 @@ export function getAllStaff() {
     });
 }
 
+export function getStaff(staffId) {
+  $.ajax({
+    url: `http://localhost:5055/greenShadow/api/v1/staff/${staffId}`,
+    type: "GET",
+    headers: {
+      Authorization: "Bearer " + getCookie("authToken"),
+    },
+    contentType: "application/json",
+    // headers: {
+    //   Authorization: "Bearer " + getCookie("authToken"),
+    // },
+    success: function (result) {
+      resolve(result);
+    },
+    error: function (xhr, status, error) {
+      reject(error);
+    },
+});
+};
 
 export function deleteStaffMember(staffId){
   return new Promise((resolve, reject) => {

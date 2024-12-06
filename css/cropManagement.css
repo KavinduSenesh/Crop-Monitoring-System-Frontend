@@ -353,22 +353,22 @@ table {
     font-size: 0.75rem;
 }
 
-.action-buttons .view-equipment-btn {
+.action-buttons .view-crop-btn {
     background-color: #709364;
     border-color: #709364;
 }
 
-.action-buttons .view-equipment-btn:hover {
+.action-buttons .view-crop-btn:hover {
     background-color: #014434;
     border-color: #014434;
 }
 
-.action-buttons .delete-equipment-btn {
+.action-buttons .delete-crop-btn {
     background-color: #ff4d4d;
     border-color: #ff4d4d;
 }
 
-.action-buttons .delete-equipment-btn:hover {
+.action-buttons .delete-crop-btn:hover {
     background-color: #ff1a1a;
     border-color: #ff1a1a;
 }

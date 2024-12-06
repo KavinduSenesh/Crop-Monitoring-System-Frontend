@@ -76,7 +76,7 @@
             <div class="iconContainer">
                 <svg viewBox="0 0 512 512" height="1em" xmlns="http://www.w3.org/2000/svg" class="search_icon"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path></svg>
             </div>
-         <input class="search_input" placeholder="search" type="text">
+         <input class="search_input" placeholder="search" type="text" id="Search">
         </div>
     </div>
         </div>
@@ -89,8 +89,8 @@
                       <th>Equipment Type</th>
                       <!-- <th>Designation</th> -->
                       <th>Availability Status</th>
-                      <th>Allocated Field</th>
-                      <th>allocated Staff</th>
+                      <!-- <th>Allocated Field</th> -->
+                      <!-- <th>allocated Staff</th> -->
                       <!-- <th>Allocated staff member</th> -->
                       <!-- <th>Contact</th>
                       <th>Email</th>
@@ -121,14 +121,14 @@
 <div class="popup" id="popup">
   <div class="popup-content">
       <span class="close" id="closePopup">&times;</span>
-      <h2>Manage Vehicle Details</h2>
+      <h2>Manage Equipment Details</h2>
       <form id="staffForm">
         <div class="inputFieldBox">
           <!-- Vehicle Code -->
           <input type="text" class="form-control mb-3" placeholder="equipment name" id="equipment-name" required>
 
           <!-- License plate number -->
-          <input type="text" class="form-control mb-3" placeholder="equipment type" id="equipment-type" required>
+          <!-- <input type="text" class="form-control mb-3" placeholder="equipment type" id="equipment-type" required> -->
           
           <!-- Vehicle Category -->
           <!-- <input type="text" class="form-control mb-3" placeholder="availability status" id="availability-status" required> -->
@@ -136,30 +136,36 @@
           <!-- Fuel Type-->
           <!-- <input type="text" class="form-control mb-3" placeholder="availability status" id="availability status" required> -->
           
+          <br>
+
             <!-- Status -->
-          <select class="form-control mb-3" id="status" required>
+          <select class="form-control mb-3" id="type" required>
             <option value="" disabled selected>Equipment Type</option>
-            <option value="Available">ELECTRICAL</option>   
-            <option value="Unavailable">MECHANICAL</option>
+            <option value="ELECTRICAL">ELECTRICAL</option>   
+            <option value="MECHANICAL">MECHANICAL</option>
             <!-- <option value="In Maintenance">In Maintenance</option> -->
             <!-- <option value="Out of Service">Out of Service</option> -->
         </select>
 
+        <br>
           <!-- Status -->
           <select class="form-control mb-3" id="status" required>
               <option value="" disabled selected>Status</option>
-              <option value="Available">AVAILABLE</option>  
-              <option value="Unavailable">NOT_AVAILABLE</option>
+              <option value="AVAILABLE">AVAILABLE</option>  
+              <option value="NOT_AVAILABLE">NOT_AVAILABLE</option>
               <!-- <option value="In Maintenance">In Maintenance</option> -->
               <!-- <option value="Out of Service">Out of Service</option> -->
           </select>
-          
+          <br>
            <!-- Fuel Type-->
-           <input type="text" class="form-control mb-3" placeholder="Allocated field" id="Allocated-field" required>
-          
+           <select class="form-control mb-3" id="allocated-field" required>
+            <option value="N/A">none</option>  
+          </select>
+          <br>
           <!--  Date of Birth -->
-          <input type="text" class="form-control mb-3" placeholder="Allocated Staff" id="allocated-staff" required>
-          
+          <select class="form-control mb-3" id="allocated-staff" required>
+          <option value="N/A">none</option>
+        </select>
           <!-- Date Joined -->
           <!-- <input type="date" class="form-control mb-3" placeholder="Date Joined" id="joinedDate" required> -->
           

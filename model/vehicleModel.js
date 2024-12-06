@@ -53,9 +53,6 @@ export function getVehicle(id){
           Authorization: "Bearer " + getCookie("authToken"),
         },
         contentType: "application/json",
-        // headers: {
-        //   Authorization: "Bearer " + getCookie("authToken"),
-        // },
         success: function (result) {
           resolve(result);
         },

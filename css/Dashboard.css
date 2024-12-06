@@ -127,25 +127,52 @@ body {
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
 }
 
-/* Keyframe animation for logo */
-@keyframes logoPulse {
-  0% {
-      transform: scale(1);
-  }
-  50% {
-      transform: scale(1.05);
-  }
-  100% {
-      transform: scale(1);
-  }
+.quick-actions {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  bottom: 20px;
+  left: 100px;
+  right: 20px;
+  z-index: 1000;
 }
 
-.dashboard-logo {
-  animation: logoPulse 2s ease-in-out infinite;
+.quick-actions h4 {
+  margin-bottom: 1rem;
 }
 
-/* Adjust navbar spacing to accommodate logo */
-.dashboardnavbar {
-  padding: 20px 0;
+.quick-actions .btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
+.quick-actions .btn {
+  flex-grow: 1;
+}
+
+.notification-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1050;
+  max-width: 300px;
+}
+
+@media (max-width: 767px) {
+  .quick-actions {
+      left: 20px;
+      padding: 15px;
+  }
+
+  .quick-actions .btn-group {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .quick-actions .btn {
+      width: 100%;
+  }
+}
