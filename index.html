@@ -1,65 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/css/index.css" />
-  </head>
-  <body>
-    <div class="form-1">
-      <img src="/assets/farm2.png" alt="Login Image" />
-      <div class="login-card">
-        <h4 class="text-center mb-4">Green Shadow Log In</h4>
-        <!-- <video src="/Assests/face-scan_WayMM2Wa.mp4" class="Login-animaton" autoplay loop muted></video> -->
-        <br>
-        <br>
-        
-        <form>
-          <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              placeholder="Enter your email"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input
-              type="password"
-              class="form-control"
-              id="password"
-              placeholder="Enter your password"
-              required
-            />
-          </div>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              id="acceptCookies"
-            />
-            <label class="form-check-label" for="acceptCookies" id="cookie">
-              I agree to all Terms and conditions
-            </label>
-          </div>
-          <button type="button" class="btn btn-primary mt-3" id="signInButton">Sign In</button>
-          <div class="links" >
-            <a id="registerLink" href="">Register</a>
-          </div>
-        </form>
-      </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-banner">
+            <img src="assets/login.png" alt="Login Image" class="login-image"/>
+        </div>
+        <div class="form-container">
+            <div class="form-header">
+                <h3 class="heading">Log Into Your Account</h3>
+                <h5 class="sub-heading">Welcome Back</h5>
+            </div>
+            <div class="form-body">
+                <label for="username-input">Username</label>
+                <input type="text" placeholder="Email" class="form-input" id="username-input"/>
+
+                <label for="password-input">Password</label>
+                <input type="password" placeholder="Password" class="form-input" id="password-input"/>
+
+                <button type="button" class="login-button">Login</button>
+                <p class="create-account">Don't an account?<a href="/pages/signup.html">Create a new account</a></p>
+            </div>
+        </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="module" src="/controller/indexController.js"></script>
- </body>
+</body>
 </html>
