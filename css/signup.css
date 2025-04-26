@@ -87,7 +87,7 @@ label {
   border: 1px solid #e0e0e0;
   border-radius: 5px;
   font-size: 1rem;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .form-input:focus {
@@ -96,8 +96,41 @@ label {
   box-shadow: 0 0 0 2px rgba(0, 92, 45, 0.1);
 }
 
+/* Select dropdown styles */
+.select-role {
+  padding: 0.8rem 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: white;
+  color: #333;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.select-role:focus {
+  outline: none;
+  border-color: #005c2d;
+  box-shadow: 0 0 0 2px rgba(0, 92, 45, 0.1);
+}
+
+.select-role option {
+  padding: 10px;
+}
+
+.select-role option:disabled {
+  color: #888;
+  background-color: #f5f5f5;
+}
+
 /* Button styles */
-.login-button {
+.register-button {
   background-color: #005c2d;
   color: white;
   padding: 0.8rem;
@@ -106,12 +139,17 @@ label {
   font-size: 1rem;
   cursor: pointer;
   font-weight: 500;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
   margin-top: 1rem;
+  letter-spacing: 0.5px;
 }
 
-.login-button:hover {
+.register-button:hover {
   background-color: #004020;
+}
+
+.register-button:active {
+  transform: scale(0.98);
 }
 
 /* Create account text */
@@ -127,24 +165,44 @@ label {
   text-decoration: none;
   margin-left: 0.3rem;
   font-weight: 500;
+  transition: color 0.3s;
 }
 
 .create-account a:hover {
   text-decoration: underline;
+  color: #003d1e;
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
   .login-container {
-    flex-direction: column;
-    width: 95%;
+      flex-direction: column;
+      width: 95%;
   }
-
+  
   .login-banner {
-    height: 200px;
+      height: 200px;
   }
-
+  
   .form-container {
-    padding: 2rem;
+      padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+      padding: 1.5rem;
+  }
+  
+  .heading {
+      font-size: 1.5rem;
+  }
+  
+  .sub-heading {
+      font-size: 0.9rem;
+  }
+  
+  .select-role {
+      padding: 0.7rem;
   }
 }
