@@ -1,256 +1,150 @@
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
-    display: flex; /* Use flexbox for alignment */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    height: 100vh; /* Full height of the viewport */
-    margin: 0; /* Remove default margin */
-    background-color: #3cb06329; /* Background color for the page */
-  }
-
-  .form-1 {
-    display: grid;
-    grid-template-columns: 400px 400px;
-    width: 800px;
-    height: 500px;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 20px; /* Adjust this as needed */
-    overflow: hidden; /* Ensure child elements respect the radius */
-  }
-  
-
-  .form-1 img {
-    width: 400px; /* Ensure the image fits the column */
-    height: 500px;
-    object-fit: cover; /* Maintain aspect ratio and cover the area */
-    }
-
-  .form-1 h1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 0;
-    font-size: 24px;
-    color: #333;
-  }
-
-  .signup-card {
-    text-align: center;
-    width: 100%;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 10px; /* Add rounded corners here */
-    overflow: hidden; /* Ensures content respects the border-radius */
-  }
-  
-
-  .signup-card .btn {
-    width: 100%;
-    background-color: #1a7036;
-    margin-top: 2000000px;
-  }
-
-  .signup-card .btn:hover{
-    background-color: #a9dc4e;
-    color: black;
-    border-color: #ffffff;
-  }
-
-  .signup-card .links {
-    margin-top: 15px;
-    text-align: center;
-  }
-
-  .signup-card .links a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: black;
-  }
-
-  .signup-card .links a:hover {
-    text-decoration: underline;
-    color: #1a7036;
-  }
-
-/*drop down menu*/
-/* Dropdown Container */
-.dropdown {
-  position: relative;
-  display: inline-block;
-  width: 100%; /* Makes the dropdown stretch to full width */
-  margin-top: 1rem;
-  margin-bottom: auto;
-}
-
-/* Dropdown Button */
-.dropdown-btn {
-  width: 100%; /* Full width button */
-  padding: 10px 15px;
-  font-size: 1rem;
-  text-align: left;
-  background-color: #e3eee8ad;
-  color: #000000;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  background-color: #f5f5f5;
   display: flex;
-  justify-content: space-between; /* Align text and arrow */
+  justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
-.dropdown-btn:hover {
-  background-color: #d2d9c774;
-  color: rgba(0, 0, 0, 0.636);
+/* Login container styles */
+.login-container {
+  display: flex;
+  max-width: 900px;
+  width: 90%;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
- 
-/* Dropdown Content */
-.dropdown-content {
-  display: none; /* Hidden by default */
-  position: absolute;
-  background-color: #fff;
-  min-width: 100%; /* Match button width */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  border-radius: 5px;
+
+/* Banner styles */
+.login-banner {
+  flex: 1;
+  background-color: #005c2d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 
-/* Dropdown Links */
-.dropdown-content li {
-  list-style: none;
+.login-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.dropdown-content li a {
-  color: #0f1110;
-  text-decoration: none;
-  display: block;
-  padding: 10px 15px;
+/* Form container styles */
+.form-container {
+  flex: 1;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-header {
+  margin-bottom: 2rem;
+}
+
+.heading {
+  color: #005c2d;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.sub-heading {
+  color: #333;
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+/* Form input styles */
+.form-body {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
   font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
 }
 
-.dropdown-content li a:hover {
-  background-color: #f5f5f5;
-  color: #1a7036;
+.form-input {
+  padding: 0.8rem 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
 }
 
-/* Show Dropdown on Click */
-.dropdown.open .dropdown-content {
-  display: block;
+.form-input:focus {
+  outline: none;
+  border-color: #005c2d;
+  box-shadow: 0 0 0 2px rgba(0, 92, 45, 0.1);
 }
 
-/* Arrow Icon */
-.dropdown-btn .arrow {
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid #fff;
-  transition: transform 0.3s ease;
+/* Button styles */
+.login-button {
+  background-color: #005c2d;
+  color: white;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
+  margin-top: 1rem;
 }
 
-.dropdown.open .dropdown-btn .arrow {
-  transform: rotate(180deg);
+.login-button:hover {
+  background-color: #004020;
 }
 
-/*drop down menu*/
-
-/* signup btn */
-button {
-position: relative;
-display: inline-block;
-cursor: pointer;
-outline: none;
-border: 0;
-vertical-align: middle;
-text-decoration: none;
-background: transparent;
-padding: 0px;
-font-size: inherit;
-font-family: inherit;
+/* Create account text */
+.create-account {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #333;
 }
 
-button.learn-more {
-width: 12rem;
-height: auto;
+.create-account a {
+  color: #005c2d;
+  text-decoration: none;
+  margin-left: 0.3rem;
+  font-weight: 500;
 }
 
-button.learn-more .circle {
-transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-position: relative;
-display: block;
-margin: 0;
-width: 3rem;
-height: 3rem;
-background: #282936;
-border-radius: 1.625rem;
+.create-account a:hover {
+  text-decoration: underline;
 }
 
-button.learn-more .circle .icon {
-transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-position: absolute;
-top: 0;
-bottom: 0;
-margin: auto;
-background: #fff;
-}
+/* Responsive design */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+    width: 95%;
+  }
 
-button.learn-more .circle .icon.arrow {
-transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-left: 0.625rem;
-width: 1.125rem;
-height: 0.125rem;
-background: none;
-}
+  .login-banner {
+    height: 200px;
+  }
 
-button.learn-more .circle .icon.arrow::before {
-position: absolute;
-content: "";
-top: -0.29rem;
-right: 0.0625rem;
-width: 0.625rem;
-height: 0.625rem;
-border-top: 0.125rem solid #fff;
-border-right: 0.125rem solid #fff;
-transform: rotate(45deg);
+  .form-container {
+    padding: 2rem;
+  }
 }
-
-button.learn-more .button-text {
-transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-padding: 0.75rem 0;
-margin: 0 0 0 1.85rem;
-color: #282936;
-font-weight: 700;
-line-height: 1.6;
-text-align: center;
-text-transform: uppercase;
-}
-
-button:hover .circle {
-width: 100%;
-}
-
-button:hover .circle .icon.arrow {
-background: #fff;
-transform: translate(1rem, 0);
-}
-
-button:hover .button-text {
-color: #fff;
-}
-.Login-animaton{
-width: 80px;
-height: 80px;
-
-}
-form{
-text-align: left;
-place-content: center;
-
-}
-/* signup btn */
