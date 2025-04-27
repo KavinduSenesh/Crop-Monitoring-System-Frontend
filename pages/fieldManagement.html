@@ -54,9 +54,52 @@
     
     
     <!-- Main Content -->
-    <div class="content"></div>
+    <div class="content">
+      <div class="container">
+        <div class="header-container">
+          <div>
+            <h1 class="header">Field Management</h1>
+          </div>
+          <div class="add-field">
+            <button class="add-button" id="add-field-button">Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Crop Modal -->
+    <div id="add-field-modal" class="modal">
+      <div class="modal-content">
+        <span class="btn-close"></span>
+        <h2>Add Crop</h2>
+        <form id="add-field-form">
+            <div>
+              <label for="crop-name">Field Name:</label>
+              <input type="text" id="crop-name" name="cropName" required class="form-control">
+            </div>
+            <div>
+              <label for="crop-scientific-name">Field Size:</label>
+              <input type="number" id="crop-scientific-name" name="cropScientificName" required class="form-control">
+            </div>
+            
+            <div class="mb-3">
+              <label for="file-input-1" class="form-label">Crop Image 1</label>
+              <input class="form-control" type="file" id="file-input-1">
+            </div>
+            <img id="image-1-preview" src="" alt="Image Preview" style="display: none; margin-top: 10px; max-width: 100%; height: auto; border-radius: 8px;" />
+            
+            <div class="mb-3">
+              <label for="file-input-2" class="form-label">Crop Image 2</label>
+              <input class="form-control" type="file" id="file-input-2">
+            </div>
+            <img id="image-2-preview" src="" alt="Image Preview" style="display: none; margin-top: 10px; max-width: 100%; height: auto; border-radius: 8px;" />
+
+            <button type="submit" class="btn-save">Save</button>
+        </form>
+      </div>
+    </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/controller/staffController.js" type="module"></script>
+<script src="/controller/fieldController.js" type="module"></script>
 </body>
 </html>

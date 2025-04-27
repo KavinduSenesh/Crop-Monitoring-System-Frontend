@@ -24,3 +24,41 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+$("#add-field-button").on("click", () => {
+    $("#add-field-modal").addClass("show");
+});
+
+$(".btn-close").on("click", () => {
+    $("#add-field-modal").removeClass("show");
+});
+
+$(window).on("click", (event) => {
+    if ($(event.target).is("#add-field-modal")) {
+      $("#add-field-modal").css("display", "none");
+    }
+});
+
+$("#file-input-1").on("change", (event) => {
+    const file = event.target.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            $("#image-1-preview").attr("src", e.target.result).fadeIn();
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+$("#file-input-2").on("change", (event) => {
+    const file = event.target.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            $("#image-2-preview").attr("src", e.target.result).fadeIn();
+        };
+        reader.readAsDataURL(file);
+    }
+});
