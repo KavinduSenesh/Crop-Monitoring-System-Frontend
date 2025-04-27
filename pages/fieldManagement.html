@@ -1,105 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Field Management</title>
-  
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/fieldManagement.css">
-    <link rel="stylesheet" href="/css/Dashboard.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Field Management Page</title>
+  <link rel="stylesheet" href="/styles/fieldmanagement.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUFRnPEYngVXl2OMcXyy3cq19iaqulB3g&libraries=places"></script>
 
 </head>
 <body>
-    <!-- Navbar -->
-    <div class="dashboardnavbar">
-      <div class="dashboard-logo">
-        <img src="/assets/logo.png" alt="logo" />
-        <span class="tooltip">Logo</span>
-      </div>
-      <div class="icon-wrapper">
-        <img src="/assets/icons/dashboard.png" alt="Bar Chart Icon" />
-        <span class="tooltip">Dashboard Overview</span>
-      </div>
-      <div class="icon-wrapper">
-        <img src="/assets/icons/staff.png" alt="Bar Chart Icon" />
-        <span class="tooltip">Staff Management</span>
-      </div>
-      <div class="icon-wrapper">
-        <img src="/assets/icons/vehicle.png" alt="Bar Chart Icon" />
-        <span class="tooltip">Vehicle Management</span>
-      </div>
-      <div class="icon-wrapper">
-        <img src="/assets/icons/field.png" alt="Bar Chart Icon" />
-        <span class="tooltip">Field Management</span>
-      </div>
-      <div class="icon-wrapper">
-        <img src="/assets/icons/Wrench.png" alt="Bar Chart Icon" />
-        <span class="tooltip">Equipment Management</span>
-      </div> 
-      <div class="icon-wrapper">
-        <img src="/assets/icons/crop.png" alt="Bar Chart Icon" />
-        <span class="tooltip">Crop Management</span>
-      </div>     
-      <div class="icon-wrapper">
-        <img src="/assets/icons/Clipboard.png" alt="Bar Chart Icon" />
-        <span class="tooltip">Monitoring Logs</span>
-      </div>
-
-      <div class="icon-wrapper">
-        <img src="/assets/icons/Logout.png" alt="Bar Chart Icon" class="logout-btn"/>
+    <div class="main-container">
+      <div class="nav-container">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+                  <img src="/assets/dashboard navigation icons/Plant.png" alt="Greenshadow Logo">
+                  Greenshadow
+              </a>
+              
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              
+              <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                          <a class="nav-link" href="/pages/dashboard.html">Dashboard</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="/pages/fieldManagement.html">Field</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="/pages/cropManagement.html">Crop</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="/pages/staffManagement.html">Staff</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="/pages/vehicleManagement.html">Vehicle</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="/pages/equipManagement.html">Equipment</a>
+                      </li>
+                  </ul>
+                  
+                  <button class="btn btn-logout" type="button" id="logout-btn">Logout</button>
+              </div>
+          </div>
+      </nav>
+  
+      <!-- Bootstrap JS and Popper.js -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
       </div>
     </div>
+
     
-    
-    <!-- Main Content -->
-    <div class="content">
-      <div class="container">
-        <div class="header-container">
-          <div>
-            <h1 class="header">Field Management</h1>
-          </div>
-          <div class="add-field">
-            <button class="add-button" id="add-field-button">Add</button>
+    <div class="content-container">
+        <div class="form-container">
+          <div class="header-container">
+            <div>
+              <h3>Manage Fields</h3>
+              <div class="date-time-container pb-2"></div>
+            </div>
+            
+            <button type="button" class="add-new-button" id="add-new-field-btn">
+              <span class="button__text">Add Field</span>
+              <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
+            </button>
           </div>
         </div>
-      </div>
+          <div id="card-container" class="ps-5"></div>
+
     </div>
 
-    <!-- Add Crop Modal -->
-    <div id="add-field-modal" class="modal">
-      <div class="modal-content">
-        <span class="btn-close"></span>
-        <h2>Add Crop</h2>
-        <form id="add-field-form">
-            <div>
-              <label for="crop-name">Field Name:</label>
-              <input type="text" id="crop-name" name="cropName" required class="form-control">
-            </div>
-            <div>
-              <label for="crop-scientific-name">Field Size:</label>
-              <input type="number" id="crop-scientific-name" name="cropScientificName" required class="form-control">
-            </div>
-            
-            <div class="mb-3">
-              <label for="file-input-1" class="form-label">Crop Image 1</label>
-              <input class="form-control" type="file" id="file-input-1">
-            </div>
-            <img id="image-1-preview" src="" alt="Image Preview" style="display: none; margin-top: 10px; max-width: 100%; height: auto; border-radius: 8px;" />
-            
-            <div class="mb-3">
-              <label for="file-input-2" class="form-label">Crop Image 2</label>
-              <input class="form-control" type="file" id="file-input-2">
-            </div>
-            <img id="image-2-preview" src="" alt="Image Preview" style="display: none; margin-top: 10px; max-width: 100%; height: auto; border-radius: 8px;" />
 
-            <button type="submit" class="btn-save">Save</button>
+<!-- Modal -->
+<div id="fieldModal" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle">Field Details</h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Carousel -->
+        <div id="modalCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img id="modalImage1" src="" class="d-block w-100" alt="Field Image 1">
+            </div>
+            <div class="carousel-item">
+              <img id="modalImage2" src="" class="d-block w-100" alt="Field Image 2">
+            </div>
+          </div>
+          <!-- Carousel controls -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#modalCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#modalCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <!-- End of Carousel -->
+        <p><strong>Field Name:</strong> <span id="modalFieldName"></span></p>
+        <p><strong>Field Size:</strong> <span id="modalFieldSize"></span></p>
+        <p><strong>Field Code:</strong> <span id="modalFieldCode"></span></p>
+        <p><strong>Staff:</strong> <span id="staff"></span></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Update</button>
+        <button type="button" class="btn btn-danger">Delete</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Field Detail Modal -->
+<div id="fieldDetailsModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2 class="modal-title">Staff Member Details</h2>
+    <div class="modal-body">
+      <p><strong>First Name:</strong> <span id="modal-firstName"></span></p>
+      <p><strong>Last Name:</strong> <span id="modal-lastName"></span></p>
+      <p><strong>Designation:</strong> <span id="modal-designation"></span></p>
+      <p><strong>Gender:</strong> <span id="modal-gender"></span></p>
+      <p><strong>Joined Date:</strong> <span id="modal-joinedDate"></span></p>
+      <p><strong>Date of Birth:</strong> <span id="modal-dob"></span></p>
+      <p><strong>Address:</strong><br> <span id="modal-address"></span></p>
+      <p><strong>Contact No:</strong> <span id="modal-contactNo"></span></p>
+      <p><strong>Email:</strong> <span id="modal-email"></span></p>
+      <p><strong>Role:</strong> <span id="modal-role"></span></p>
+    </div>
+    <div class="btn-container">
+        <button class="btn btn-secondary " id="update-btn">Update</button>
+        <button class="btn btn-danger ms-2" id="delete-btn">Delete</button>
+    </div>
+  </div>
+</div>
+
+  <!-- Add-Field-Modal -->
+  <div id="add-field-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Add Field</h3>
+        <form id="add-crop-form">
+            <div>
+                <label for="field-name">Field Name:</label>
+                <input type="text" id="field-name" name="fieldName" required class="form-control">
+            </div>
+            <div>
+              <label for="field-size">Field Size:</label>
+              <input type="text" id="field-size" name="fieldSize" required class="form-control">
+          </div>
+
+          <div class="image-input-container">
+            <div class="image-input-container">
+              <div class="custom-file-input pb-3 pt-2">
+                <label for="file-input-1" class="file-label">Field image 1</label>
+                <input type="file" id="file-input-1">
+              </div>
+              <div class="custom-file-input pb-3 pt-2">
+                <label for="file-input-2" class="file-label">Field image 2</label>
+                <input type="file" id="file-input-2">
+              </div>
+            </div>
+            
+          </div>
+
+            <div id="map" class="mb-2"></div>
+
+            <button  class="btn btn-primary" id="save-field-btn">Save Field</button>
+
         </form>
-      </div>
     </div>
+</div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/controller/fieldController.js" type="module"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="/controller/FieldController.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

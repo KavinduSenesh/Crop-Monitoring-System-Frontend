@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+*{
+  font-family: 'Lora', sans-serif;
+}
+
+:root {
+  --primary-green: #114321;
+  --secondary-green: #114321;
+}
+
+.navbar {
+height: 80px;
+  background: linear-gradient(to right, var(--primary-green), var(--secondary-green)) !important;
+  padding: 0.8rem 1rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  color: white !important;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.navbar-brand img {
+  margin-right: 10px;
+  height: 40px;
+  width: 40px;
+}
+
+.navbar-nav .nav-link {
+  color: rgba(255,255,255,0.8) !important;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navbar-nav .nav-link:hover {
+  color: white !important;
+  transform: scale(1.05);
+}
+
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transition: width 0.3s;
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+.navbar-nav .nav-item.active .nav-link {
+  color: white !important;
+  font-weight: bold;
+}
+
+.btn-logout {
+  background-color: rgba(255,255,255,0.2);
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-logout:hover {
+  background-color: rgba(255,255,255,0.3);
+}
+
+
+/* From Uiverse.io by andrew-demchenk0 */ 
+.add-new-button {
+position: relative;
+width: 150px;
+height: 40px;
+cursor: pointer;
+display: flex;
+align-items: center;
+border: 1px solid #34974d;
+background-color: #3aa856;
+}
+
+.add-new-button, .button__icon, .button__text {
+transition: all 0.3s;
+}
+
+.add-new-button .button__text {
+transform: translateX(30px);
+color: #fff;
+font-weight: 600;
+}
+
+.add-new-button .button__icon {
+position: absolute;
+transform: translateX(109px);
+height: 100%;
+width: 39px;
+background-color: #34974d;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.add-new-button .svg {
+width: 30px;
+stroke: #fff;
+}
+
+.add-new-button:hover {
+background: #34974d;
+}
+
+.add-new-button:hover .button__text {
+color: transparent;
+}
+
+.add-new-button:hover .button__icon {
+width: 148px;
+transform: translateX(0);
+}
+
+.add-new-button:active .button__icon {
+background-color: #2e8644;
+}
+
+.add-new-button:active {
+border: 1px solid #2e8644;
+}
+
+th, td {
+  width: 6%;
+  padding-left: 1%;
+  padding-bottom: 0.5%;
+  text-align: left; /* Optional: Align text to the left */
+}
+
+td{
+  cursor: pointer;
+}
+
+.first-row:hover{
+color: white;
+background-color: #114321;
+transition: none; /* Smooth animation for transform and shadow */
+}
+
+.first-row{
+
+color : white;
+background-color: #114321;
+}
+
+tr {
+background-color: rgb(240, 240, 240);
+transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth animation for transform and shadow */
+font-size: 1.1rem; /* Slightly larger font size */
+line-height: 1.6; /* Increases the space within rows */
+}
+
+tr:nth-child(even) {
+background-color: rgba(80, 239, 80, 0.67);
+}
+
+
+tr + tr {
+margin-top: 8px; /* Adds space between rows */
+display: table-row; /* Ensures spacing between rows is visible */
+}
+
+
+tr:hover {
+  color: black;
+  transform: translateY(-2px); /* Moves the row slightly upward */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a soft shadow */
+  background-color: #2b9e0b4c; /* Optional: Slight background color change on hover */
+}
+
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+      background: linear-gradient(to right, var(--primary-green), var(--secondary-green));
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1000;
+      padding: 20px;
+      overflow-y: auto;
+  }
+
+  .navbar-nav {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+  }
+
+  .navbar-nav .nav-link {
+      font-size: 1.5rem;
+      margin: 15px 0;
+  }
+}
+
+.main-container{
+  margin-top: 9vh;
+  text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-container {
+  display: grid;
+  grid-template-rows: 65px auto;
+    font-family: 'Lora', sans-serif; /* Replace 'Roboto' with your chosen font */
+    font-family: 'Lora', sans-serif;
+    padding: 1%;
+    border-radius: 15px;
+    margin: 30px;
+    height: 580px;
+    /* background-color: rgb(208, 233, 215); */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6); /* Adds a shadow effect */
+}
+
+.nav-container{
+  text-align: center;
+}
+
+.navbar{
+  text-align: center;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.header-container{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  place-content: center;
+}
+
+.page-topic{
+  text-align: left;
+}
+
+.add-new-vehicle-button{
+  place-content: center;
+  position: fixed;
+  top: 135px;
+  right: 45px;
+}
+
+
+
+/*newest view*/
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 400px;
+    height: 420px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.modal-content {
+    padding: 20px;
+}
+
+.modal-title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.modal-body p {
+    margin: 10px 0;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}

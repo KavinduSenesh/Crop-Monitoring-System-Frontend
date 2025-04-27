@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+*{
+    font-family: 'Lora', sans-serif;    
+}
+
+.main-container{
+    margin: 1%;
+}
+
+.lastname-label{
+    padding-left: 12.6%;
+}
+
+#lastNameInput{
+    margin-left: 5%;
+}
+
+.gender-label{
+    padding-left: 12.2%;
+}
+
+#gender{
+    margin-left: 5%;
+}
+
+.joineddate-label{
+    padding-left: 12.4%;
+}
+
+#dobInput{
+    margin-left: 8.2%;
+}
+
+/* .address-container{
+    border: 1px solid;
+} */
+
+.address-line2-label{
+    padding-left: 12.6%;
+}
+
+.address-line4-label{
+    padding-left: 12.4%
+}
+
+.email-label{
+    padding-left: 10.6%;
+}

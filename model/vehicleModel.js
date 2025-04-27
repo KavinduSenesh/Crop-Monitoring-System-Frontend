@@ -1,106 +1,89 @@
-import { getCookie } from "./tokenModel.js";
+import { getCookie } from "./TokenModel.js";
 
-export function getAllVehicles(){
-    return new Promise((resolve, reject) => {
-        $.ajax({
-            url: "http://localhost:5055/greenShadow/api/v1/vehicle",
-            type: "GET",
-            headers: {
-              Authorization: "Bearer " + getCookie("authToken"),
-            },
-            dataType: "json", // Automatically parses JSON response
-            success: (response) => {
-                console.log("Vehicles fetched successfully:", response);
-                resolve(response);
-            },
-            error: (xhr, status, error) => {
-                console.error("Error fetching Vehicle:", error); // Log error
-                reject(error); // Reject promise with error
-            }
-        });
+export function getAll() {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url: "http://localhost:5055/crop-monitor/api/v1/vehicle",
+      type: "GET",
+      headers: {
+        Authorization: "Bearer " + getCookie("authToken"), // Ensure token is valid
+      }, // HTTP method
+      success: (data) => {
+        console.log(data);
+        resolve(data);
+      },
+      error: (jqXHR, textStatus, errorThrown) => {
+        reject(`Request failed: ${textStatus}, ${errorThrown}`);
+      },
     });
+  });
 }
 
-export function saveVehicle(vehicleData){
-    console.log("Saving Vehicle:", vehicleData);
-    return new Promise((resolve, reject) => {
-        $.ajax({
-            url: "http://localhost:5055/greenShadow/api/v1/vehicle",
-            type: "POST",
-            headers: {
-              Authorization: "Bearer " + getCookie("authToken"),
-            },
-            contentType: "application/json",
-            data: JSON.stringify(vehicleData),
-            success: (response) => {
-                console.log("Vehicle saved successfully:", response);
-                resolve(response);
-            },
-            error: (jqXHR, textStatus, errorThrown) => {
-                console.error(`Failed to save Vehicle: ${textStatus}, ${errorThrown}`);
-                reject(`Request failed with status: ${jqXHR.status}`);
-            },
-        });
+export function save(vehicle) {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url: "http://localhost:5055/crop-monitor/api/v1/vehicle",
+      type: "POST",
+      headers: {
+        Authorization: "Bearer " + getCookie("authToken"), // Ensure token is valid
+      }, // HTTP method
+      contentType: "application/json",
+      data: JSON.stringify(vehicle),
+      success: (response) => {
+        console.log("Vehicle saved successfully:", response);
+        resolve(response);
+      },
+      error: (jqXHR, textStatus, errorThrown) => {
+        reject(`Save failed: ${textStatus}, ${errorThrown}`);
+      },
     });
+  });
 }
 
-export function getVehicle(id){
-    return new Promise((resolve, reject) => {
-      $.ajax({
-        url: `http://localhost:5055/greenShadow/api/v1/vehicle/${id}`,
-        type: "GET",
-        headers: {
-          Authorization: "Bearer " + getCookie("authToken"),
-        },
-        contentType: "application/json",
-        success: function (result) {
-          resolve(result);
-        },
-        error: function (xhr, status, error) {
-          reject(error);
-        },
+export function deleteVehicle(vehicleCode) {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url: `http://localhost:5055/crop-monitor/api/v1/vehicle/${vehicleCode}`, // Use the vehicleCode in the URL
+      type: "DELETE", // Specify the request type as DELETE
+      headers: {
+        Authorization: "Bearer " + getCookie("authToken"), // Ensure token is valid
+      }, // HTTP method
+      success: (response) => {
+        console.log("Vehicle deleted successfully:", response);
+        resolve(response); // Resolves the promise with the server's response
+      },
+      error: (jqXHR, textStatus, errorThrown) => {
+        console.error(
+          `Failed to delete vehicle: ${textStatus}, ${errorThrown}`
+        );
+        reject(`Delete failed: ${jqXHR.status}, ${errorThrown}`);
+      },
+    });
   });
-  })
-  }
-
-  export function updateVehicle(vehicle_id, vehicle, staff_id) {
-    console.log("Updating Vehicle:", vehicle, staff_id, vehicle_id);
-    return new Promise((resolve, reject) => {
-      $.ajax({
-        url: `http://localhost:5055/greenShadow/api/v1/vehicle/${vehicle_id}?staffId=${staff_id}`,
-        method: "PATCH",
-        // contentType: "application/json",
-        headers: {
-            "Content-Type": "application/json",
-          Authorization: "Bearer " + getCookie("authToken"),
-        },
-        data: JSON.stringify(vehicle),
-        success: function (result) {
-          resolve(result);
-        },
-        error: function (xhr, status, error) {
-          reject(error);
-        },
-  });
- });
 }
 
-export function deleteVehicle(vehicle_id){
+export function updateVehicle(vehicleCode, updatedData) {
     return new Promise((resolve, reject) => {
       $.ajax({
-        url: `http://localhost:5055/greenShadow/api/v1/vehicle/${vehicle_id}`,
-        type: "DELETE",
+        url: `http://localhost:5055/crop-monitor/api/v1/vehicle/${vehicleCode}`, // Use the vehicleCode in the URL
+        type: "PATCH", // Specify the request type as PUT for updating
         headers: {
-          Authorization: "Bearer " + getCookie("authToken"),
-        },
+          Authorization: "Bearer " + getCookie("authToken"), // Ensure token is valid
+        }, // HTTP method
+        contentType: "application/json", // Set content type to JSON
+        data: JSON.stringify(updatedData), // Send the updated data as JSON
         success: (response) => {
-          console.log("Vehicle member deleted successfully:", response);
-          resolve(response);
+          console.log("Vehicle updated successfully:", response);
+          resolve(response); // Resolves the promise with the server's response
         },
         error: (jqXHR, textStatus, errorThrown) => {
-          console.error(`Failed to delete vehicle member: ${textStatus}, ${errorThrown}`);
-          reject(`Request failed with status: ${jqXHR.status}`);
+          console.error(
+            `Failed to update vehicle: ${textStatus}, ${errorThrown}`
+          );
+          reject(`Update failed: ${jqXHR.status}, ${errorThrown}`);
         },
       });
-    })
+    });
   }
+  
+  

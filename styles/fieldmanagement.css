@@ -1,0 +1,484 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+.main-container{
+    font-family: 'Lora', sans-serif; /* Replace 'Roboto' with your chosen font */
+    text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+
+:root {
+    --primary-green: #114321;
+    --secondary-green: #114321;
+  }
+  
+  .navbar {
+  height: 80px;
+    background: linear-gradient(to right, var(--primary-green), var(--secondary-green)) !important;
+    padding: 0.8rem 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    color: white !important;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  .navbar-brand img {
+    margin-right: 10px;
+    height: 40px;
+    width: 40px;
+  }
+  
+  .navbar-nav .nav-link {
+    color: rgba(255,255,255,0.8) !important;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: white !important;
+    transform: scale(1.05);
+  }
+  
+  .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s;
+  }
+  
+  .navbar-nav .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  .navbar-nav .nav-item.active .nav-link {
+    color: white !important;
+    font-weight: bold;
+  }
+  
+  .btn-logout {
+    background-color: rgba(255,255,255,0.2);
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-logout:hover {
+    background-color: rgba(255,255,255,0.3);
+  }
+  
+  
+  /* From Uiverse.io by andrew-demchenk0 */ 
+  .add-new-button {
+  position: relative;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 1px solid #34974d;
+  background-color: #3aa856;
+  }
+  
+  .add-new-button, .button__icon, .button__text {
+  transition: all 0.3s;
+  }
+  
+  .add-new-button .button__text {
+  transform: translateX(30px);
+  color: #fff;
+  font-weight: 600;
+  }
+  
+  .add-new-button .button__icon {
+  position: absolute;
+  transform: translateX(109px);
+  height: 100%;
+  width: 39px;
+  background-color: #34974d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+  
+  .add-new-button .svg {
+  width: 30px;
+  stroke: #fff;
+  }
+  
+  .add-new-button:hover {
+  background: #34974d;
+  }
+  
+  .add-new-button:hover .button__text {
+  color: transparent;
+  }
+  
+  .add-new-button:hover .button__icon {
+  width: 148px;
+  transform: translateX(0);
+  }
+  
+  .add-new-button:active .button__icon {
+  background-color: #2e8644;
+  }
+  
+  .add-new-button:active {
+  border: 1px solid #2e8644;
+  }
+  
+  
+  
+  @media (max-width: 991px) {
+    .navbar-collapse {
+        background: linear-gradient(to right, var(--primary-green), var(--secondary-green));
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        padding: 20px;
+        overflow-y: auto;
+    }
+  
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+  
+    .navbar-nav .nav-link {
+        font-size: 1.5rem;
+        margin: 15px 0;
+    }
+  }
+
+
+
+.content-container {
+    display: grid;
+    grid-template-rows: 65px auto;
+      font-family: 'Lora', sans-serif; /* Replace 'Roboto' with your chosen font */
+      font-family: 'Lora', sans-serif;
+      padding: 1%;
+      border-radius: 15px;
+      margin: 30px;
+      height: 580px;
+      /* background-color: rgb(208, 233, 215); */
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6); /* Adds a shadow effect */
+  }
+
+ 
+  .nav-container{
+    text-align: center;
+  }
+  
+  .navbar{
+    text-align: center;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  
+  .header-container{
+      display: grid;
+      grid-template-columns: 50% 50%;
+      place-content: center;
+  }
+  
+  .page-topic{
+    text-align: left;
+  }
+  
+  .add-new-button-container{
+    place-content: center;
+    position: fixed;
+    top: 135px;
+    right: 45px;
+    /* margin-left: 35vw; */
+  }
+
+
+
+
+.table{
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.table table th, .table table td{
+    font-size: 20px;
+    font-weight: 50;
+
+    padding-left: 8px;
+
+    width: 10vw;
+    height: 2vw;
+    text-align: left;
+}
+
+.form-container{
+    flex-grow: 1; /* Allow this to expand within the content-container */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.date-time-container{
+    margin-top: -10px;
+    margin-left: 8px;
+    font-size: 15px;
+    color: rgb(82, 86, 90);
+}
+
+.form{
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+.textfield{
+    background-color: rgb(219, 248, 214);
+    border-radius: 20px;
+}
+
+.field-name-desc{
+    margin-left: 16.4%;
+}
+
+#field-size-textfield{
+    margin-left: 3%;
+}
+
+.map-container {
+    width: 500px;
+    height: 500px;
+    display: inline-block;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+#location-display {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.form-container {
+    flex-grow: 1; /* Allow the form container to grow and fill space */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%; /* Ensures it fills the parent's height */
+    overflow: hidden; /* Ensures the card-container can scroll independently */
+}
+
+#card-container {
+    display: grid; /* Grid layout for 4 cards per row */
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+    gap: 1.5rem; /* Space between cards */
+    padding: 1rem;
+    overflow-y: auto; /* Enables vertical scrolling */
+    height: 85.3%; /* Takes all available height */
+    background-color: #fff; /* Optional: distinct background */
+    box-sizing: border-box; /* Ensures padding doesn't affect the height */
+}
+
+/* Custom scrollbar */
+#card-container::-webkit-scrollbar {
+    width: 10px;
+}
+#card-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+#card-container::-webkit-scrollbar-thumb {
+    background: #888;
+}
+#card-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Card styling */
+.card {
+    width: 100%; /* Cards fill their column space */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.card img {
+    max-width: 100%; /* Ensure image fits within the card */
+    height: 200px; /* Set a fixed height for images */
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+}
+
+/* Main overlay for background dimming */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
+    z-index: 1040; /* Below the modal but above other elements */
+    display: none; /* Hidden by default */
+}
+
+/* Modal content styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1050; /* Above the backdrop */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: none;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevents scrollbars */
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with opacity */
+  }
+
+#modalImage1{
+    width: 100%; 
+    height: 300px;
+    margin-bottom: 1rem;
+}
+
+#modalImage2{
+    width: 100%; 
+    height: 300px;
+    margin-bottom: 1rem;
+}
+  
+  /* Modal dialog */
+  .modal-dialog {
+    width: 90%;
+    max-width: 500px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    animation: fadeIn 0.3s;
+  }
+
+  .header-container{
+    display: grid;
+    grid-template-columns: 90% 10%;
+  }
+  
+  /* Fading animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Modal container */
+.modal{
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent black background */
+    z-index: 1000; /* Ensures it's above other elements */
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+}
+
+/* Modal content */
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    max-width: 90%; /* Responsive width */
+    text-align: left;
+}
+
+/* Close button */
+.modal .close {
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal .close:hover {
+    color: red;
+}
+
+.custom-file-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+}
+
+.file-label {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hide default input */
+#file-input-1 {
+    display: none;
+}
+
+#file-input-2 {
+    display: none;
+}
+
+#crop-modal .custom-file-input {
+    display: none;
+}
+
+#map {
+    height: 300px; /* Set the height of the map */
+    width: 100%;   /* Set the width of the map */
+}
+
+#add-field-modal{
+    height: 100%;
+}
+
+.image-input-container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
