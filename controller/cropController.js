@@ -27,3 +27,32 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+$("#add-crop-button").on("click", () => {
+    $("#add-crop-modal").addClass("show");
+});
+
+$(".btn-close").on("click", () => {
+    $("#add-crop-modal").removeClass("show");
+});
+
+$(window).on("click", (event) => {
+    if ($(event.target).is("#add-crop-modal")) {
+      $("#add-crop-modal").css("display", "none");
+    }
+});
+
+$("#file-input").on("change", (event) => {
+    const file = event.target.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            $("#image-preview").attr("src", e.target.result).fadeIn();
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+  
+  
