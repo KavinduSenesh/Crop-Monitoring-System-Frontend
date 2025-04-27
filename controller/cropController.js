@@ -28,6 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+getAll();
+
 $("#add-crop-button").on("click", () => {
     $("#add-crop-modal").addClass("show");
 });
@@ -53,6 +55,15 @@ $("#file-input").on("change", (event) => {
         reader.readAsDataURL(file);
     }
 });
+
+let cropCode;
+
+export function getAll() {
+    getAllCrops()
+    .then((crops) => {
+        console.log(crops);
+    })
+}
 
 
   

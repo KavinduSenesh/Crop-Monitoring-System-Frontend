@@ -1,7 +1,7 @@
 export function login(email, password) {
     return new Promise((resolve, reject) => {
       $.ajax({
-        url: "http://localhost:5055/greenShadow/v1/auth/signin",
+        url: "http://localhost:5055/crop-monitor/api/v1/auth/signup",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify({ email, password }),
