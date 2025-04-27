@@ -6,7 +6,7 @@
     <title>Crop Management</title>
   
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/cropManagement.css">
+    <link rel="stylesheet" href="/css/StaffManagement.css">
     <link rel="stylesheet" href="/css/Dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
@@ -52,9 +52,90 @@
       </div>
     </div>
     
-    
     <!-- Main Content -->
-    <div class="content"></div>
+    <div class="content">
+      <div class="container">
+        <div class="header-container">
+          <div>
+            <h1 class="header">Staff Management</h1>
+          </div>
+          <div class="add-staff">
+            <button class="add-button" id="add-staff-button">Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Crop Modal -->
+    <div id="add-staff-modal" class="modal">
+      <div class="modal-content">
+        <span class="btn-close"></span>
+        <h2>Add Staff</h2>
+        <form id="add-staff-form">
+            <div>
+              <label for="staff-id">Staff Id:</label>
+              <input type="text" id="staff-id" name="staffId" required class="form-control">
+            </div>
+            <div>
+              <label for="first-name">First Name:</label>
+              <input type="text" id="first-name" name="firstName" required class="form-control">
+            </div>
+            <div>
+              <label for="last-name">Last Name:</label>
+              <input type="text" id="last-name" name="lastName" required class="form-control">
+            </div>
+            <div>
+              <label for="designation">Designation:</label>
+              <input type="text" id="designation" name="designation" required class="form-control">
+            </div>
+            <div>
+              <label for="joined-date">Joined Date:</label>
+              <input type="date" id="joined-date" name="joinedDate" required class="form-control">
+            </div>
+            <div>
+              <label for="dob">DOB:</label>
+              <input type="date" id="dob" name="DOB" required class="form-control">
+            </div>
+            <div>
+              <label for="address-line-1">Address Line 1:</label>
+              <input type="" id="address-line-1" name="addressLine1" required class="form-control">
+            </div>
+            <div>
+              <label for="address-line-2">Address Line 2:</label>
+              <input type="text" id="address-line-2" name="addressLine2" required class="form-control">
+            </div>
+            <div>
+              <label for="address-line-3">Address Line 3:</label>
+              <input type="text" id="address-line-3" name="addressLine3" required class="form-control">
+            </div>
+            <div>
+              <label for="address-line-4">Address Line 4:</label>
+              <input type="text" id="address-line-4" name="addressLine4" required class="form-control">
+            </div>
+            <div>
+              <label for="address-line-5">Address Line 5:</label>
+              <input type="text" id="address-line-5" name="addressLine5" required class="form-control">
+            </div>
+            <div>
+              <label for="contact">Contact:</label>
+              <input type="text" id="contact" name="contact" required class="form-control">
+            </div>
+            <div>
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required class="form-control">
+            </div>
+            <select title="role" id="role" name="role" required class="select-role">
+              <option value="">Select Role</option>
+              <option value="MANAGER">Manager</option>
+              <option value="ADMINISTRATIVE">Administrative</option>
+              <option value="SCEIENTIST">Scientist</option>
+              <option value="OTHER">Other</option>
+            </select>
+
+            <button type="submit" class="btn-save">Save</button>
+        </form>
+      </div>
+    </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/controller/staffController.js" type="module"></script>

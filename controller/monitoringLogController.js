@@ -25,3 +25,29 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+$("#add-log-button").on("click", () => {
+    $("#add-log-modal").addClass("show");
+});
+
+$(".btn-close").on("click", () => {
+    $("#add-log-modal").removeClass("show");
+});
+
+$(window).on("click", (event) => {
+    if ($(event.target).is("#add-log-modal")) {
+      $("#add-log-modal").css("display", "none");
+    }
+});
+
+$("#file-input").on("change", (event) => {
+    const file = event.target.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            $("#image-preview").attr("src", e.target.result).fadeIn();
+        };
+        reader.readAsDataURL(file);
+    }
+});

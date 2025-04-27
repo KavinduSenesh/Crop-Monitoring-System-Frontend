@@ -25,3 +25,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+$("#add-staff-button").on("click", () => {
+    $("#add-staff-modal").addClass("show");
+});
+
+$(".btn-close").on("click", () => {
+    $("#add-staff-modal").removeClass("show");
+});
+
+$(window).on("click", (event) => {
+    if ($(event.target).is("#add-staff-modal")) {
+      $("#add-staff-modal").css("display", "none");
+    }
+});
+
+$("#file-input").on("change", (event) => {
+    const file = event.target.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            $("#image-preview").attr("src", e.target.result).fadeIn();
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
