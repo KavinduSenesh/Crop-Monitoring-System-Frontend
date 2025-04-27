@@ -54,9 +54,71 @@
     
     
     <!-- Main Content -->
-    <div class="content"></div>
+    <div class="content">
+      <div class="container">
+        <div class="header-container">
+          <div>
+            <h1 class="header">Equipment Management</h1>
+          </div>
+          <div class="add-equipment">
+            <button class="add-button" id="add-equipment-button">Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Equipment Modal -->
+    <div id="add-equipment-modal" class="modal">
+      <div class="modal-content">
+        <span class="btn-close"></span>
+        <h2>Add Equipment</h2>
+        <form id="add-equipment-form">
+            <div>
+              <label for="equipment-name">Equipment Id:</label>
+              <input type="text" id="equipment-name" name="equipmentName" required class="form-control">
+            </div>
+            <div>
+              <label for="equipment-name">Equipment Name:</label>
+              <input type="text" id="equipment-name" name="equipmentName" required class="form-control">
+            </div>
+
+            <div>
+              <label for="equipment-status">Status:</label>
+              <input type="text" id="equipment-status" name="status" required class="form-control">
+            </div>
+            
+            <br>
+
+            <select title="equipment-type" id="equipment-type" name="equipment-type" required class="select-type">
+              <option value="">Select Type</option>
+              <option value="MANAGER">Manager</option>
+              <option value="ADMINISTRATIVE">Administrative</option>
+              <option value="SCEIENTIST">Scientist</option>
+              <option value="OTHER">Other</option>
+            </select>
+
+            <select title="assigned-staff" id="assigned-staff" name="assigned-staff" required class="select-type">
+              <option value="">Select Type</option>
+              <option value="MANAGER">Manager</option>
+              <option value="ADMINISTRATIVE">Administrative</option>
+              <option value="SCEIENTIST">Scientist</option>
+              <option value="OTHER">Other</option>
+            </select>
+
+            <select title="assigned-field" id="assigned-field" name="assigned-field" required class="select-type">
+              <option value="">Select Type</option>
+              <option value="MANAGER">Manager</option>
+              <option value="ADMINISTRATIVE">Administrative</option>
+              <option value="SCEIENTIST">Scientist</option>
+              <option value="OTHER">Other</option>
+            </select>
+
+            <button type="submit" class="btn-save">Save</button>
+        </form>
+      </div>
+    </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/controller/staffController.js" type="module"></script>
+<script src="/controller/equipmentController.js" type="module"></script>
 </body>
 </html>

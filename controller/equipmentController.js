@@ -31,3 +31,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+
+$("#add-equipment-button").on("click", () => {
+    $("#add-equipment-modal").addClass("show");
+});
+
+$(".btn-close").on("click", () => {
+    $("#add-equipment-modal").removeClass("show");
+});
+
+$(window).on("click", (event) => {
+    if ($(event.target).is("#add-equipment-modal")) {
+      $("#add-equipment-modal").css("display", "none");
+    }
+});
