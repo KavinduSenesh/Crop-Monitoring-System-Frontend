@@ -1,0 +1,479 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+.main-container{
+    font-family: 'Lora', sans-serif; /* Replace 'Roboto' with your chosen font */
+}
+
+:root {
+    --primary-green: #114321;
+    --secondary-green: #114321;
+  }
+  
+  .navbar {
+  height: 80px;
+    background: linear-gradient(to right, var(--primary-green), var(--secondary-green)) !important;
+    padding: 0.8rem 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    color: white !important;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  .navbar-brand img {
+    margin-right: 10px;
+    height: 40px;
+    width: 40px;
+  }
+  
+  .navbar-nav .nav-link {
+    color: rgba(255,255,255,0.8) !important;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: white !important;
+    transform: scale(1.05);
+  }
+  
+  .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s;
+  }
+  
+  .navbar-nav .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  .navbar-nav .nav-item.active .nav-link {
+    color: white !important;
+    font-weight: bold;
+  }
+  
+  .btn-logout {
+    background-color: rgba(255,255,255,0.2);
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-logout:hover {
+    background-color: rgba(255,255,255,0.3);
+  }
+  
+  
+  /* From Uiverse.io by andrew-demchenk0 */ 
+  .add-new-button {
+  position: relative;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 1px solid #34974d;
+  background-color: #3aa856;
+  }
+  
+  .add-new-button, .button__icon, .button__text {
+  transition: all 0.3s;
+  }
+  
+  .add-new-button .button__text {
+  transform: translateX(30px);
+  color: #fff;
+  font-weight: 600;
+  }
+  
+  .add-new-button .button__icon {
+  position: absolute;
+  transform: translateX(109px);
+  height: 100%;
+  width: 39px;
+  background-color: #34974d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+  
+  .add-new-button .svg {
+  width: 30px;
+  stroke: #fff;
+  }
+  
+  .add-new-button:hover {
+  background: #34974d;
+  }
+  
+  .add-new-button:hover .button__text {
+  color: transparent;
+  }
+  
+  .add-new-button:hover .button__icon {
+  width: 148px;
+  transform: translateX(0);
+  }
+  
+  .add-new-button:active .button__icon {
+  background-color: #2e8644;
+  }
+  
+  .add-new-button:active {
+  border: 1px solid #2e8644;
+  }
+  
+  
+  
+  @media (max-width: 991px) {
+    .navbar-collapse {
+        background: linear-gradient(to right, var(--primary-green), var(--secondary-green));
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        padding: 20px;
+        overflow-y: auto;
+    }
+  
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+  
+    .navbar-nav .nav-link {
+        font-size: 1.5rem;
+        margin: 15px 0;
+    }
+  }
+
+
+.main-container{
+  text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 9vh;
+}
+
+.content-container {
+  display: grid;
+  grid-template-rows: 65px auto;
+    font-family: 'Lora', sans-serif; /* Replace 'Roboto' with your chosen font */
+    font-family: 'Lora', sans-serif;
+    padding: 1%;
+    border-radius: 15px;
+    margin: 30px;
+    height: 580px;
+    /* background-color: rgb(208, 233, 215); */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6); /* Adds a shadow effect */
+}
+
+.nav-container{
+  text-align: center;
+}
+
+.navbar{
+  text-align: center;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.header-container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    place-content: center;
+}
+
+.page-topic{
+  text-align: left;
+}
+
+.add-new-button-container{
+  place-content: center;
+  position: fixed;
+  top: 135px;
+  right: 45px;
+  /* margin-left: 35vw; */
+}
+
+.form{
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+.textfield{
+    background-color: rgb(219, 248, 214);
+    border-radius: 20px;
+}
+
+.crop-scientific-desc{
+    margin-left: 28%;
+}
+
+#scientificname-textfield{
+    margin-left: 8%;
+}
+
+.textfield{
+    margin-bottom: 20px;
+}
+
+#cropseason-textfield{
+    margin-left: 8%;
+}
+
+.crop-season-desc{
+    margin-left: 30.8%;
+}
+
+#options{
+    background-color: rgb(219, 248, 214);;
+    border-radius: 20px;
+    margin-top: 5px;
+    margin-bottom: 50px;
+    width: 28%;
+}
+
+/* Hide the actual file input */
+#fileUpload {
+    display: none;
+}
+
+/* Style for the custom file upload button */
+.custom-file-upload {
+    background-color: rgb(219, 248, 214);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    color: white;
+    width: 29%;
+    height: 100px;
+    border: 1px solid green;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.update-file-upload{
+    background-color: rgb(219, 248, 214);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    color: white;
+    width: 29%;
+    height: 80px;
+    border: 1px solid green;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-update-crop{
+    font-size: 12px;
+    background-color: rgb(182, 240, 172);
+    border-radius: 10px;
+    margin-top: 22px;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none; /* Optional: Remove default button border */
+}
+
+.btn-update-crop:hover {
+    transform: translateY(-5px); /* Moves the button slightly up */
+    box-shadow: 0px 4px 8px rgba(0, 255, 0, 0.5); /* Adds a soft glow */
+}
+
+.content-container {
+    height: 600px; /* Set a fixed height for the entire container */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    overflow: hidden; /* Prevents page scrolling */
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    flex-grow: 1; /* Ensure it takes up all available space */
+    overflow: hidden; /* Prevent overflow */
+}
+
+#card-container {
+    display: grid; /* Grid layout for 4 cards per row */
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+    gap: 1.5rem; /* Space between cards */
+    padding: 1rem;
+    overflow-y: auto; /* Enables vertical scrolling for cards */
+    flex-grow: 1; 
+    margin-top: 2%;
+}
+
+.card {
+    width: 100%; /* Cards fill their column space */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.card img {
+    max-width: 100%; /* Ensure image fits within the card */
+    height: 200px; /* Set a fixed height for images */
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+}
+
+.add-new-vehicle-button{
+    margin-top: -18px;
+}
+
+
+/* Modal overlay */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Prevents scrollbars */
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with opacity */
+}
+
+/* Modal content box */
+.modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    max-height: 80%; /* Limit the modal height */
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    overflow-y: auto; /* Enable vertical scrolling when content overflows */
+}
+
+/* Image inside modal */
+#modal-img {
+    height: 150px; /* Slightly larger image */
+    margin-bottom: 20px; /* Spacing below the image */
+}
+
+.header-container{
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+.btn-success{
+    font-size: 14px;
+    margin-left: 37%;
+    margin-top: 80px;
+    width: 38%;
+    height: 30px;
+}
+
+/* Modal container */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent black background */
+    z-index: 1000; /* Ensures it's above other elements */
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+}
+
+/* Modal content */
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    max-width: 90%; /* Responsive width */
+    text-align: left;
+}
+
+/* Close button */
+.modal .close {
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal .close:hover {
+    color: red;
+}
+
+
+.custom-file-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+}
+
+.file-label {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.file-label:hover {
+    background-color: #0056b3;
+}
+
+.file-name {
+    font-size: 14px;
+    color: #333;
+    font-style: italic;
+}
+
+/* Hide default input */
+#file-input {
+    display: none;
+}
+
+#crop-modal .custom-file-input {
+    display: none;
+}
+
+
+
