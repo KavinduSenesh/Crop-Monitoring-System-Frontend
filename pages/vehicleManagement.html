@@ -52,11 +52,71 @@
       </div>
     </div>
     
-    
     <!-- Main Content -->
-    <div class="content"></div>
+    <div class="content">
+      <div class="container">
+        <div class="header-container">
+          <div>
+            <h1 class="header">Vehicle Management</h1>
+          </div>
+          <div class="add-vehicle">
+            <button class="add-button" id="add-vehicle-button">Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Crop Modal -->
+    <div id="add-vehicle-modal" class="modal">
+      <div class="modal-content">
+        <span class="btn-close"></span>
+        <h2>Add Vehicle</h2>
+        <form id="add-vehicle-form">
+            <div>
+              <label for="vehicle-code">Vehicle Code:</label>
+              <input type="text" id="vehicle-code" name="vehicleCode" required class="form-control">
+            </div>
+            <div>
+              <label for="crop-name">License Number:</label>
+              <input type="text" id="crop-name" name="cropName" required class="form-control">
+            </div>
+            <div>
+              <label for="crop-category">Category:</label>
+              <input type="text" id="crop-category" name="cropCategory" required class="form-control">
+            </div>
+            <div>
+              <label for="crop-season">Remarks:</label>
+              <input type="text" id="crop-season" name="cropSeason" required class="form-control">
+            </div>
+            <select title="fuel-type" id="fuel-type" name="fuel-type" required class="select-role">
+              <option value="">Fuel Type</option>
+              <!-- <option value="MANAGER">Manager</option>
+              <option value="ADMINISTRATIVE">Administrative</option>
+              <option value="SCEIENTIST">Scientist</option>
+              <option value="OTHER">Other</option> -->
+            </select>
+            <select title="status" id="status" name="status" required class="select-role">
+              <option value="">Status</option>
+              <!-- <option value="MANAGER">Manager</option>
+              <option value="ADMINISTRATIVE">Administrative</option>
+              <option value="SCEIENTIST">Scientist</option>
+              <option value="OTHER">Other</option> -->
+            </select>
+
+            <select title="staff-id" id="staff-id" name="staff-id" required class="select-role">
+              <option value="">Staff Id</option>
+              <!-- <option value="MANAGER">Manager</option>
+              <option value="ADMINISTRATIVE">Administrative</option>
+              <option value="SCEIENTIST">Scientist</option>
+              <option value="OTHER">Other</option> -->
+            </select>
+            
+            <button type="submit" class="btn-save">Save</button>
+        </form>
+      </div>
+    </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/controller/staffController.js" type="module"></script>
+<script src="/controller/vehicleController.js" type="module"></script>
 </body>
 </html>

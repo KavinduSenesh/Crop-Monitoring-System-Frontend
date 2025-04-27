@@ -24,3 +24,29 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+$("#add-vehicle-button").on("click", () => {
+    $("#add-vehicle-modal").addClass("show");
+});
+
+$(".btn-close").on("click", () => {
+    $("#add-vehicle-modal").removeClass("show");
+});
+
+$(window).on("click", (event) => {
+    if ($(event.target).is("#add-vehicle-modal")) {
+      $("#add-vehicle-modal").css("display", "none");
+    }
+});
+
+$("#file-input").on("change", (event) => {
+    const file = event.target.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            $("#image-preview").attr("src", e.target.result).fadeIn();
+        };
+        reader.readAsDataURL(file);
+    }
+});
